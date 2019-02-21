@@ -3,27 +3,21 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>python的交互式编程与脚本式编程 | 37° &#39;s blog</title>
+  <title>python基础语法 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
+  <meta name="keywords" content="菜鸟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python的交互式编程与脚本式编程">
-<meta property="og:url" content="http://yoursite.com/2019/02/05/交互模式与脚本模式/index.html">
+<meta property="og:title" content="python基础语法">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/python基本语法/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e08ed6a562.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e0a7032d27.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e0cc9e7010.png">
-<meta property="og:updated_time" content="2019-02-21T02:34:21.633Z">
+<meta property="og:updated_time" content="2019-02-21T02:39:34.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python的交互式编程与脚本式编程">
-<meta name="twitter:description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
-<meta name="twitter:image" content="https://i.loli.net/2019/02/21/5c6e08ed6a562.png">
+<meta name="twitter:title" content="python基础语法">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -217,11 +211,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-交互模式与脚本模式" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python基本语法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/05/交互模式与脚本模式/" class="article-date">
-  	<time datetime="2019-02-05T06:21:19.000Z" itemprop="datePublished">2019-02-05</time>
+      <a href="/2019/02/14/python基本语法/" class="article-date">
+  	<time datetime="2019-02-13T16:00:00.000Z" itemprop="datePublished">2019-02-14</time>
 </a>
     </div>
   
@@ -234,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python的交互式编程与脚本式编程
+      python基础语法
       
     </h1>
   
@@ -243,12 +237,16 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/菜鸟/">菜鸟</a></li></ul>
+	</div>
+
         
 
         
           
 <div class="counter-tag counter">
-    <span id="/2019/02/05/交互模式与脚本模式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的交互式编程与脚本式编程">
+    <span id="/2019/02/14/python基本语法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python基础语法">
          &nbsp;
         view
     </span>
@@ -261,11 +259,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="交互式编程"><a href="#交互式编程" class="headerlink" title="交互式编程"></a>交互式编程</h1><p>交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。</p>
-<p>linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。<br>我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在设置好这些之后你就可以在cmd.exe中输入python，可以得到以下界面：<br><img src="https://i.loli.net/2019/02/21/5c6e08ed6a562.png" alt=""><br>出现这个页面，说明你已经进入了python的交互模式，在这里面你可以看到自己所使用python的版本，也可以进行简单的四则运算，python的基本语法，输入输出。<br><strong>例如输出简单的hello world</strong>：你可以输入print (‘hello world’)<br><img src="https://i.loli.net/2019/02/21/5c6e0a7032d27.png" alt=""><br>就可以得到想要的结果。</p>
-<h1 id="脚本式编程"><a href="#脚本式编程" class="headerlink" title="脚本式编程"></a>脚本式编程</h1><p>通过脚本参数调用解释器开始执行脚本，直到脚本执行完毕。当脚本执行完成后，解释器不再有效。</p>
-<p>让我们写一个简单的 Python 脚本程序。所有 Python 文件将以 .py 为扩展名。我们可以用python自带的idle编译器进行编辑，如下图所示：<br><img src="https://i.loli.net/2019/02/21/5c6e0cc9e7010.png" alt=""><br>就输出了简单hello world。</p>
-<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+        
       
     </div>
     
@@ -274,18 +268,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/02/14/python基本语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          python基础语法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/20/人生苦短，我用python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">人生苦短，我用python</div>
+    <a href="/2019/02/05/交互模式与脚本模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python的交互式编程与脚本式编程</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -295,7 +280,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="交互模式与脚本模式" data-title="python的交互式编程与脚本式编程" data-url="http://yoursite.com/2019/02/05/交互模式与脚本模式/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python的交互式编程与脚本式编程">
+<div class="ds-share share" data-thread-key="python基本语法" data-title="python基础语法" data-url="http://yoursite.com/2019/02/14/python基本语法/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python基础语法">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
