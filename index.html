@@ -211,6 +211,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-strip用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/25/strip用法/" class="article-date">
+  	<time datetime="2019-03-25T05:58:31.000Z" itemprop="datePublished">2019-03-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/25/strip用法/">
+        Python中strip()、lstrip()、rstrip()用法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Python中strip-、lstrip-、rstrip-用法详解"><a href="#Python中strip-、lstrip-、rstrip-用法详解" class="headerlink" title="Python中strip()、lstrip()、rstrip()用法详解"></a>Python中strip()、lstrip()、rstrip()用法详解</h1><p>Python中有三个去除头尾字符、空白符的函数，它们依次为:<br>strip： 用来去除头尾字符、空白符(包括\n、\r、\t、’ ‘，即：换行、回车、制表符、空格)<br>lstrip：用来去除开头字符、空白符(包括\n、\r、\t、’ ‘，即：换行、回车、制表符、空格)<br>rstrip：用来去除结尾字符、空白符(包括\n、\r、\t、’ ‘，即：换行、回车、制表符、空格)</p>
+<blockquote>
+<p>注意：这些函数都只会删除头和尾的字符，中间的不会删除。</p>
+</blockquote>
+<p>用法分别为：<br><code>string.strip([chars])</code><br><code>string.lstrip([chars])</code><br><code>string.rstrip([chars])</code></p>
+<p>参数chars是可选的，当chars为空，默认删除string头尾的空白符(包括\n、\r、\t、’ ‘)<br>当chars不为空时，函数会被chars解成一个个的字符，然后将这些字符去掉。</p>
+<p>它返回的是去除头尾字符(或空白符)的string副本，string本身不会发生改变。</p>
+<p>举例说明如下：</p>
+<h2 id="1-当chars为空时，默认删除空白符-包括’-n’-‘-r’-‘-t’-‘-‘"><a href="#1-当chars为空时，默认删除空白符-包括’-n’-‘-r’-‘-t’-‘-‘" class="headerlink" title="1. 当chars为空时，默认删除空白符(包括’\n’, ‘\r’, ‘\t’, ‘ ‘)"></a>1. 当chars为空时，默认删除空白符(包括’\n’, ‘\r’, ‘\t’, ‘ ‘)</h2><p><code>&gt;&gt;&gt; str = &#39; ab cd &#39;</code><br><code>&gt;&gt;&gt; str</code><br><code>&#39; ab cd &#39;</code><br><code>&gt;&gt;&gt; str.strip() #删除头尾空格</code><br><code>&#39;ab cd&#39;</code><br><code>&gt;&gt;&gt; str.lstrip() #删除开头空格</code><br><code>&#39;ab cd &#39;</code><br><code>&gt;&gt;&gt; str.rstrip() #删除结尾空格</code><br><code>&#39; ab cd&#39;</code></p>
+<h2 id="2-当chars不为空时，函数会被chars解成一个个的字符，然后将这些字符去掉。"><a href="#2-当chars不为空时，函数会被chars解成一个个的字符，然后将这些字符去掉。" class="headerlink" title="2.当chars不为空时，函数会被chars解成一个个的字符，然后将这些字符去掉。"></a>2.当chars不为空时，函数会被chars解成一个个的字符，然后将这些字符去掉。</h2><p><code>&gt;&gt;&gt; str2 = &#39;1a2b12c21&#39;</code><br><code>&gt;&gt;&gt; str2.strip(&#39;12&#39;) #删除头尾的1和2</code><br><code>&#39;a2b12c&#39;</code><br><code>&gt;&gt;&gt; str2.lstrip(&#39;12&#39;) #删除开头的1和2</code><br><code>&#39;a2b12c21&#39;</code><br><code>&gt;&gt;&gt; str2.rstrip(&#39;12&#39;) #删除结尾的1和2</code><br><code>&#39;1a2b12c&#39;</code></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/03/25/strip用法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="Python中strip()、lstrip()、rstrip()用法">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-os模块的基本用法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
