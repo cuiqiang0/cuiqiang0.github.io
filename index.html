@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,85 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-pycham搭建python程序运行环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/27/pycham搭建python程序运行环境/" class="article-date">
+  	<time datetime="2019-03-27T11:03:23.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/pycham搭建python程序运行环境/">
+        pycharm搭建python程序运行环境
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文写的是在Windows系统下安装python和pycharm，并完成正常的python的代码的执行，即简单的python运行环境。</p>
+<blockquote>
+<p>PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</p>
+</blockquote>
+<h1 id="下载安装python"><a href="#下载安装python" class="headerlink" title="下载安装python"></a>下载安装python</h1><p><strong>python官网链接：<a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></strong><br><img src="https://i.loli.net/2019/03/27/5c9b5969d3f3d.png" alt=""><br>  推荐安装python3.0以上版本，进入链接之后，选择自己的操作系统和要下载的python版本，下载过程中记得点击添加系统环境变量，如下图：<br><img src="https://i.loli.net/2019/03/27/5c9b5b4ce822f.png" alt=""><br>之后就可以一直next，然后在cmd中输入<code>python</code>，如果出现下图，即代表安装成功。<br><img src="https://i.loli.net/2019/03/27/5c9b5bd6b42f0.png" alt=""></p>
+<h1 id="pycharm的安装"><a href="#pycharm的安装" class="headerlink" title="pycharm的安装"></a>pycharm的安装</h1><p><strong>pycharm官网链接：<a href="http://www.jetbrains.com/pycharm/download/#section=windows" target="_blank" rel="noopener">http://www.jetbrains.com/pycharm/download/#section=windows</a></strong></p>
+<p>进去网站之后，会看到下面的界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5c30490fa.png" alt=""><br>推荐下载使用社区版的，社区版的自己使用足够了，并且是免费的，如果下载专业版的只能使用三十天，试用结束之后还要重新下载或者选择购买。下载之后点击运行软件，看到以下界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5c30918f4.png" alt=""><br>然后<br><img src="https://i.loli.net/2019/03/27/5c9b5c30b3542.png" alt=""><br>这里记得改安装路径，接下来是<br><img src="https://i.loli.net/2019/03/27/5c9b5e9ebd030.png" alt=""><br>根据自己的电脑选择32位还是64位，目前应该基本都是64位系统的，选择好之后点next<br><img src="https://i.loli.net/2019/03/27/5c9b5ee58193d.png" alt=""><br>看到这个页面点击install（安装）<br><img src="https://i.loli.net/2019/03/27/5c9b5f27bc604.png" alt=""><br>看到这个页面我们的pycharm就已经安装成功了。</p>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>首先运行pycharn，看到以下界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5fa6aba05.png" alt=""><br>点击<strong>create new probject</strong><br><img src="https://i.loli.net/2019/03/27/5c9b5fe5eea7e.png" alt=""><br>这里是我们存代码的目录，尽量填写简短一点，填写之后，点击<strong>create</strong>，就可以看到pycharm的主页面，然后我们点击<strong>file-&gt;settings</strong>,看到下图<br><img src="https://i.loli.net/2019/03/27/5c9b60ec9d2fa.png" alt=""><br><img src="https://i.loli.net/2019/03/27/5c9b606516a92.png" alt=""><br>如上图所示找到你的python安装路径<br><img src="https://i.loli.net/2019/03/27/5c9b61d625a53.png" alt=""><br>如果需要安装模块，可以点击如图所示的＋号<br><img src="https://i.loli.net/2019/03/27/5c9b620e8d18f.png" alt=""><br>在这里搜索需要安装的模块，点击下方的安装就可以了，我们在这里安装一个<strong>pymysql</strong>，等待一会就安装成功了，接下来就可以开始愉快的打代码了！</p>
+<h1 id="创建-py文件"><a href="#创建-py文件" class="headerlink" title="创建.py文件"></a>创建.py文件</h1><p>回到主页面<br><img src="https://i.loli.net/2019/03/27/5c9b63e0bb2c8.png" alt=""><br>如图，创建一个.py文件，<br><img src="https://i.loli.net/2019/03/27/5c9b642271462.png" alt=""><br>输入文件名之后，系统会自动生成，之后就可以打代码了<br><img src="https://i.loli.net/2019/03/27/5c9b6431188d6.png" alt=""><br>打完代码之后，右键点击<strong>run ‘文件名’</strong>就可以跑起来程序了。</p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><blockquote>
+<p>比较常用的快捷键：<br>Ctrl + Alt + I    自动缩进<br>Tab / Shift + Tab  缩进、不缩进当前行<br>Ctrl + D  复制选定的区域或行<br>Ctrl + Y    删除选定的行<br>Shift + Enter    另起一行<br>Ctrl + Shift + R   全局替换<br>Shift + F10    运行</p>
+</blockquote>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python环境搭建/">python环境搭建</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/03/27/pycham搭建python程序运行环境/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="pycharm搭建python程序运行环境">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-cve漏洞复现" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -896,76 +975,10 @@
 
 
   
-    <article id="post-title" class="article article-type-post" itemscope="" itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2019/01/15/title/" class="article-date">
-  	<time datetime="2019-01-15T07:41:18.000Z" itemprop="datePublished">2019-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/title/">
-        My first blog
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是我的第一篇博客，实在是不想第一篇就写技术类的文章，主要是我也没有技术，哈哈。写一些什么好呢？现在上大一，就先写一些我的感想吧，作为我的起点。  </p>
-<p>首先，我是小菜鸟一枚，以下的观点可能不正确，欢迎批评指正。</p>
-<p>大一上学期时间就这样的过去了，经过了半年的时间，我也有了很深的体悟：大学，不是我们想的那么简单!上学期，感觉时间过的好快，自己刚退伍回来，已经两年没有了学习，在部队，天天都是一些不费脑子的活动，再加上自己对计算机也不是很理解，开学一段时间，不知道自己天天学的是啥，很迷茫。这一学期下来，基本上没有听过课，上课都是在学习自己喜欢的计算机知识或者是看一些其他的。</p>
-<p>对于程序设计，以前的我总是自我感觉良好，觉得老师教的都会，留的实验报告都能做出来，然后我就飘飘然，现在感觉自己的目光太短浅了，程序设计并不是自己想的那么简单，自己才学到的是简单的语法和结构，深入的算法都一无所知。</p>
-<p>对于信息安全，刚开学时，自己加入了信息安全实验室，那时感觉自己对这方面挺热爱，感兴趣，当学了一段时间之后，发现都没有那么简单，好多时候都是做了一晚上一道题都做不出来，但一学期过去了，虽然我还是感觉技术没有增加多少，但我还是挺喜欢信息安全的，并相信自己能一直坚持学下去。</p>
-<p>现在的我，有时候有些迷茫，特别是在有很多题做不出来，或者是怎么也做不对的时候。但我从未放弃过，自己选择的路，跪着也要走完！在经过着一学期之后，我在学习上也有了许多方法，不再像刚入学的时候什么都不知道了，也慢慢的懂得了自己要学的方向。</p>
-<p>其实无论什么事情，坚持最重要，若害怕困难，还能搞什么事情？？？做一个不忘初心的人。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/01/15/title/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="My first blog">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>pycharm搭建python程序运行环境 | 37° &#39;s blog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言本文写的是在Windows系统下安装python和pycharm，并完成正常的python的代码的执行，即简单的python运行环境。  PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框">
+<meta name="keywords" content="python环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pycharm搭建python程序运行环境">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/pycham搭建python程序运行环境/index.html">
+<meta property="og:site_name" content="37° &#39;s blog">
+<meta property="og:description" content="前言本文写的是在Windows系统下安装python和pycharm，并完成正常的python的代码的执行，即简单的python运行环境。  PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5969d3f3d.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5b4ce822f.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5bd6b42f0.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5c30490fa.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5c30918f4.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5c30b3542.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5e9ebd030.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5ee58193d.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5f27bc604.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5fa6aba05.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b5fe5eea7e.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b60ec9d2fa.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b606516a92.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b61d625a53.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b620e8d18f.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b63e0bb2c8.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b642271462.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/27/5c9b6431188d6.png">
+<meta property="og:updated_time" content="2019-03-27T12:09:19.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pycharm搭建python程序运行环境">
+<meta name="twitter:description" content="前言本文写的是在Windows系统下安装python和pycharm，并完成正常的python的代码的执行，即简单的python运行环境。  PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/27/5c9b5969d3f3d.png">
+  
+    <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85415703-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("your_app_id", "your_app_key");</script>
+<script src="/js/Counter.js"></script>
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">崔强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">欢迎光临！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/cuiqiang0.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/702078220@qq.com" title="mail">mail</a>
+					        
+								<a class="qq" target="_blank" href="/702078220" title="qq">qq</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">崔强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">崔强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">欢迎光临！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/cuiqiang0.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/702078220@qq.com" title="mail">mail</a>
+			        
+						<a class="qq" target="_blank" href="/702078220" title="qq">qq</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-pycham搭建python程序运行环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/27/pycham搭建python程序运行环境/" class="article-date">
+  	<time datetime="2019-03-27T11:03:23.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      pycharm搭建python程序运行环境
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python环境搭建/">python环境搭建</a></li></ul>
+	</div>
+
+        
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2019/03/27/pycham搭建python程序运行环境/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="pycharm搭建python程序运行环境">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文写的是在Windows系统下安装python和pycharm，并完成正常的python的代码的执行，即简单的python运行环境。</p>
+<blockquote>
+<p>PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</p>
+</blockquote>
+<h1 id="下载安装python"><a href="#下载安装python" class="headerlink" title="下载安装python"></a>下载安装python</h1><p><strong>python官网链接：<a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></strong><br><img src="https://i.loli.net/2019/03/27/5c9b5969d3f3d.png" alt=""><br>  推荐安装python3.0以上版本，进入链接之后，选择自己的操作系统和要下载的python版本，下载过程中记得点击添加系统环境变量，如下图：<br><img src="https://i.loli.net/2019/03/27/5c9b5b4ce822f.png" alt=""><br>之后就可以一直next，然后在cmd中输入<code>python</code>，如果出现下图，即代表安装成功。<br><img src="https://i.loli.net/2019/03/27/5c9b5bd6b42f0.png" alt=""></p>
+<h1 id="pycharm的安装"><a href="#pycharm的安装" class="headerlink" title="pycharm的安装"></a>pycharm的安装</h1><p><strong>pycharm官网链接：<a href="http://www.jetbrains.com/pycharm/download/#section=windows" target="_blank" rel="noopener">http://www.jetbrains.com/pycharm/download/#section=windows</a></strong></p>
+<p>进去网站之后，会看到下面的界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5c30490fa.png" alt=""><br>推荐下载使用社区版的，社区版的自己使用足够了，并且是免费的，如果下载专业版的只能使用三十天，试用结束之后还要重新下载或者选择购买。下载之后点击运行软件，看到以下界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5c30918f4.png" alt=""><br>然后<br><img src="https://i.loli.net/2019/03/27/5c9b5c30b3542.png" alt=""><br>这里记得改安装路径，接下来是<br><img src="https://i.loli.net/2019/03/27/5c9b5e9ebd030.png" alt=""><br>根据自己的电脑选择32位还是64位，目前应该基本都是64位系统的，选择好之后点next<br><img src="https://i.loli.net/2019/03/27/5c9b5ee58193d.png" alt=""><br>看到这个页面点击install（安装）<br><img src="https://i.loli.net/2019/03/27/5c9b5f27bc604.png" alt=""><br>看到这个页面我们的pycharm就已经安装成功了。</p>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>首先运行pycharn，看到以下界面：<br><img src="https://i.loli.net/2019/03/27/5c9b5fa6aba05.png" alt=""><br>点击<strong>create new probject</strong><br><img src="https://i.loli.net/2019/03/27/5c9b5fe5eea7e.png" alt=""><br>这里是我们存代码的目录，尽量填写简短一点，填写之后，点击<strong>create</strong>，就可以看到pycharm的主页面，然后我们点击<strong>file-&gt;settings</strong>,看到下图<br><img src="https://i.loli.net/2019/03/27/5c9b60ec9d2fa.png" alt=""><br><img src="https://i.loli.net/2019/03/27/5c9b606516a92.png" alt=""><br>如上图所示找到你的python安装路径<br><img src="https://i.loli.net/2019/03/27/5c9b61d625a53.png" alt=""><br>如果需要安装模块，可以点击如图所示的＋号<br><img src="https://i.loli.net/2019/03/27/5c9b620e8d18f.png" alt=""><br>在这里搜索需要安装的模块，点击下方的安装就可以了，我们在这里安装一个<strong>pymysql</strong>，等待一会就安装成功了，接下来就可以开始愉快的打代码了！</p>
+<h1 id="创建-py文件"><a href="#创建-py文件" class="headerlink" title="创建.py文件"></a>创建.py文件</h1><p>回到主页面<br><img src="https://i.loli.net/2019/03/27/5c9b63e0bb2c8.png" alt=""><br>如图，创建一个.py文件，<br><img src="https://i.loli.net/2019/03/27/5c9b642271462.png" alt=""><br>输入文件名之后，系统会自动生成，之后就可以打代码了<br><img src="https://i.loli.net/2019/03/27/5c9b6431188d6.png" alt=""><br>打完代码之后，右键点击<strong>run ‘文件名’</strong>就可以跑起来程序了。</p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><blockquote>
+<p>比较常用的快捷键：<br>Ctrl + Alt + I    自动缩进<br>Tab / Shift + Tab  缩进、不缩进当前行<br>Ctrl + D  复制选定的区域或行<br>Ctrl + Y    删除选定的行<br>Shift + Enter    另起一行<br>Ctrl + Shift + R   全局替换<br>Shift + F10    运行</p>
+</blockquote>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/27/cve漏洞复现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CVE-2018-12613漏洞复现</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="pycham搭建python程序运行环境" data-title="pycharm搭建python程序运行环境" data-url="http://yoursite.com/2019/03/27/pycham搭建python程序运行环境/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="pycharm搭建python程序运行环境">
+    <div class="ds-share-inline">
+      <ul class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2019 崔强
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
