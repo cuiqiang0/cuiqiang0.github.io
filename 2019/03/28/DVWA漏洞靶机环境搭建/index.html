@@ -3,23 +3,34 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>os模块的基本用法 | 37° &#39;s blog</title>
+  <title>DVWA漏洞靶机环境搭建 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python中os模块的用法os模块在python中属于内置模块，即不需要额外安装。os模块提供了非常丰富的方法来处理文件和目录。在使用os模块之前，需要先导入它，即： import os  常见函数列表  os.sep:取代操作系统特定的路径分隔符os.name:指示你正在使用的工作平台。比如对于Windows，它是’nt’，而对于Linux/Unix用户，它是’posix’。os.getcwd">
+  <meta name="description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
+<meta name="keywords" content="技术分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="os模块的基本用法">
-<meta property="og:url" content="http://yoursite.com/2019/02/16/os模块的基本用法/index.html">
+<meta property="og:title" content="DVWA漏洞靶机环境搭建">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/DVWA漏洞靶机环境搭建/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="python中os模块的用法os模块在python中属于内置模块，即不需要额外安装。os模块提供了非常丰富的方法来处理文件和目录。在使用os模块之前，需要先导入它，即： import os  常见函数列表  os.sep:取代操作系统特定的路径分隔符os.name:指示你正在使用的工作平台。比如对于Windows，它是’nt’，而对于Linux/Unix用户，它是’posix’。os.getcwd">
+<meta property="og:description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T12:50:37.543Z">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daa8c70327.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dab87a5ae9.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dae1644382.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dae8d9ca05.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daeeb22523.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daf4b95f93.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db186b11e7.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db25f33d79.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db3fc43bc9.png">
+<meta property="og:updated_time" content="2019-03-29T05:59:21.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="os模块的基本用法">
-<meta name="twitter:description" content="python中os模块的用法os模块在python中属于内置模块，即不需要额外安装。os模块提供了非常丰富的方法来处理文件和目录。在使用os模块之前，需要先导入它，即： import os  常见函数列表  os.sep:取代操作系统特定的路径分隔符os.name:指示你正在使用的工作平台。比如对于Windows，它是’nt’，而对于Linux/Unix用户，它是’posix’。os.getcwd">
+<meta name="twitter:title" content="DVWA漏洞靶机环境搭建">
+<meta name="twitter:description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/29/5c9daa8c70327.png">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -213,11 +224,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-os模块的基本用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DVWA漏洞靶机环境搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/16/os模块的基本用法/" class="article-date">
-  	<time datetime="2019-02-16T07:41:18.000Z" itemprop="datePublished">2019-02-16</time>
+      <a href="/2019/03/28/DVWA漏洞靶机环境搭建/" class="article-date">
+  	<time datetime="2019-03-28T12:56:02.000Z" itemprop="datePublished">2019-03-28</time>
 </a>
     </div>
   
@@ -230,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      os模块的基本用法
+      DVWA漏洞靶机环境搭建
       
     </h1>
   
@@ -239,12 +250,16 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术分享/">技术分享</a></li></ul>
+	</div>
+
         
 
         
           
 <div class="counter-tag counter">
-    <span id="/2019/02/16/os模块的基本用法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="os模块的基本用法">
+    <span id="/2019/03/28/DVWA漏洞靶机环境搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA漏洞靶机环境搭建">
          &nbsp;
         view
     </span>
@@ -257,13 +272,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python中os模块的用法"><a href="#python中os模块的用法" class="headerlink" title="python中os模块的用法"></a>python中os模块的用法</h1><p><strong>os模块在python中属于内置模块，即不需要额外安装。os模块提供了非常丰富的方法来处理文件和目录。</strong><br>在使用os模块之前，需要先导入它，即：<strong> import os </strong></p>
-<h2 id="常见函数列表"><a href="#常见函数列表" class="headerlink" title="常见函数列表"></a>常见函数列表</h2><blockquote>
-<blockquote>
-<p>os.sep:取代操作系统特定的路径分隔符<br>os.name:指示你正在使用的工作平台。比如对于Windows，它是’nt’，而对于Linux/Unix用户，它是’posix’。<br>os.getcwd:得到当前工作目录，即当前python脚本工作的目录路径。<br>os.getenv()和os.putenv:分别用来读取和设置环境变量<br>os.listdir():返回指定目录下的所有文件和目录名<br>os.remove(file):删除一个文件<br>os.stat（file）:获得文件属性<br>os.chmod(file):修改文件权限和时间戳<br>os.mkdir(name):创建目录<br>os.rmdir(name):删除目录<br>os.removedirs（r“c：\python”）:删除多个目录<br>os.system():运行shell命令<br>os.exit():终止当前进程<br>os.linesep:给出当前平台的行终止符。例如，Windows使用’\r\n’，Linux使用’\n’而Mac使用’\r’<br>os.path.split():返回一个路径的目录名和文件名<br>os.path.isfile()和os.path.isdir()分别检验给出的路径是一个目录还是文件<br>os.path.existe():检验给出的路径是否真的存在<br>os.listdir(dirname):列出dirname下的目录和文件<br>os.getcwd():获得当前工作目录<br>os.curdir:返回当前目录（’.’）<br>os.chdir(dirname):改变工作目录到dirname<br>os.path.isdir(name):判断name是不是目录，不是目录就返回false<br>os.path.isfile(name):判断name这个文件是否存在，不存在返回false<br>os.path.exists(name):判断是否存在文件或目录name<br>os.path.getsize(name):或得文件大小，如果name是目录返回0L<br>os.path.abspath(name):获得绝对路径<br>os.path.isabs():判断是否为绝对路径<br>os.path.normpath(path):规范path字符串形式<br>os.path.split(name):分割文件名与目录（事实上，如果你完全使用目录，它也会将最后一个目录作为文件名而分离，同时它不会判断文件或目录是否存在）<br>os.path.splitext():分离文件名和扩展名<br>os.path.join(path,name):连接目录与文件名或目录<br>os.path.basename(path):返回文件名<br>os.path.dirname(path):返回文件路径<br><em>对于这些方法，我感觉很难记得住，到用的时候查一下就好了，没有必要去刻意的记，而且好多方法都是英语的翻译，如果想记的话还不如记单词来的快。</em></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括<strong>Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的验证码）、SQL Injection（SQL注入）、SQL Injection（Blind）（SQL盲注）、Weak Session IDs（弱会话标识）、XSS（DOM）（文档对象模型跨站脚本）、XSS（Reflected）（反射型跨站脚本）、XSS（Stored）（存储型跨站脚本）、JavaScript等漏洞。</strong>并且每一种漏洞还分了四种不同级别，在实验中还可以对照不同的等级来比较不同的PHP代码，给出的代码能我们更好的了解相应攻击方式的防御机制。</p>
 </blockquote>
-</blockquote>
-<h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h1>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>DVWA：链接：<a href="https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA" target="_blank" rel="noopener">https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA </a><br>提取码：wm9r<br>phpstudy：<a href="http://www.phpstudy.net/" target="_blank" rel="noopener">http://www.phpstudy.net/ </a></p>
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>下载的步骤比较简单，下载好后，解压<strong>PHP study</strong>和<strong>DVWA</strong>，这两个步骤也比较简单，注意PHP study的路径不能有中文，安装好后就可以看到PHP study的主页面如下图：<br><img src="https://i.loli.net/2019/03/29/5c9daa8c70327.png" alt=""><br>之后找到<strong>PHP study</strong>根目录下的<strong>www</strong>目录，如下图：<br><img src="https://i.loli.net/2019/03/29/5c9dab87a5ae9.png" alt=""></p>
+<p>在这里找到根目录后，把解压好的DVWA文件放在<strong>www</strong>目录下，如下图<br><img src="https://i.loli.net/2019/03/29/5c9dae1644382.png" alt=""><br>并且要把文件名改成<strong>DVWA</strong>。<br><img src="https://i.loli.net/2019/03/29/5c9dae8d9ca05.png" alt=""><br>接着用记事本打开DVWA/config/config.inc.php文件。<br><img src="https://i.loli.net/2019/03/29/5c9daeeb22523.png" alt=""><br>保存修改之后把文件的后缀去掉，如图<br><img src="https://i.loli.net/2019/03/29/5c9daf4b95f93.png" alt=""><br>做完这些环境设置就已经完成了，就可以启动<strong>PHP study</strong>并在浏览器上进入<strong>DVWA</strong>网站，链接：<a href="http://localhost/dvwa/setup.php" target="_blank" rel="noopener">http://localhost/dvwa/setup.php</a></p>
+<h1 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h1><p>进入网站之后会显示这个页面，直接跳过就会出现登陆界面<br><img src="https://i.loli.net/2019/03/29/5c9db186b11e7.png" alt=""><br><img src="https://i.loli.net/2019/03/29/5c9db25f33d79.png" alt=""><br>这里是默认的密码。<br><img src="https://i.loli.net/2019/03/29/5c9db3fc43bc9.png" alt=""><br>到这里，整个DVWA的环境已经搭建完毕。</p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
       
     </div>
     
@@ -272,18 +288,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/03/23/win7系统安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          windows操作系统的安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/14/python基本语法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础</div>
+    <a href="/2019/03/27/pycham搭建python程序运行环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pycharm搭建python程序运行环境</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -293,7 +300,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="os模块的基本用法" data-title="os模块的基本用法" data-url="http://yoursite.com/2019/02/16/os模块的基本用法/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="os模块的基本用法">
+<div class="ds-share share" data-thread-key="DVWA漏洞靶机环境搭建" data-title="DVWA漏洞靶机环境搭建" data-url="http://yoursite.com/2019/03/28/DVWA漏洞靶机环境搭建/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="DVWA漏洞靶机环境搭建">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
