@@ -211,6 +211,157 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DVWA（文件上传篇）" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/01/DVWA（文件上传篇）/" class="article-date">
+  	<time datetime="2019-04-01T10:39:45.000Z" itemprop="datePublished">2019-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/01/DVWA（文件上传篇）/">
+        DVWA（文件上传篇）
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><strong>中国菜刀</strong>链接：<a href="https://pan.baidu.com/s/1rhPJDj5qAUa5nKT2zseIoA" target="_blank" rel="noopener">https://pan.baidu.com/s/1rhPJDj5qAUa5nKT2zseIoA</a><br>提取码：84h2 </p>
+<p><strong>burpsuite</strong>链接：<a href="https://pan.baidu.com/s/1Qe5PyAV5XYrok3DAHxcMlg" target="_blank" rel="noopener">https://pan.baidu.com/s/1Qe5PyAV5XYrok3DAHxcMlg </a><br>提取码：f6e9 </p>
+<h2 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h2><blockquote>
+<p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。这里上传的文件可以是木马，病毒，恶意脚本或者WebShell等。这种攻击方式是最为直接和有效的，“文件上传”的这个行为是没有问题的，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。<br>文件上传漏洞本身就是一个危害巨大的漏洞，WebShell更是将这种漏洞的利用无限扩大。大多数的上传漏洞被利用后攻击者都会留下WebShell以方便后续进入系统。攻击者在受影响系统放置或者插入WebShell后，可通过该WebShell更轻松，更隐蔽的在服务中为所欲为。</p>
+</blockquote>
+<h2 id="Webshell简介"><a href="#Webshell简介" class="headerlink" title="Webshell简介"></a>Webshell简介</h2><blockquote>
+<p>WebShell就是以asp、php、jsp或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称之为一种网页后门。攻击者在入侵了一个网站后，通常会将这些asp或php后门文件与网站服务器web目录下正常的网页文件混在一起，然后使用浏览器来访问这些后门，得到一个命令执行环境，以达到控制网站服务器的目的（可以上传下载或者修改文件，操作数据库，执行任意命令等）。<br>WebShell后门隐蔽较性高，可以轻松穿越防火墙，访问WebShell时不会留下系统日志，只会在网站的web日志中留下一些数据提交记录，没有经验的管理员不容易发现入侵痕迹。攻击者可以将WebShell隐藏在正常文件中并修改文件时间增强隐蔽性，也可以采用一些函数对WebShell进行编码或者拼接以规避检测。除此之外，通过一句话木马的小马来提交功能更强大的大马可以更容易通过应用本身的检测。<strong>&lt;?php eval($_POST[a]); ?&gt;</strong>就是一个最常见最原始的小马。</p>
+</blockquote>
+<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p><a href="https://baike.baidu.com/item/中华人民共和国网络安全法/16843044?fr=aladdin" target="_blank" rel="noopener">[https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/16843044?fr=aladdin]</a></p>
+<h1 id="low"><a href="#low" class="headerlink" title="low"></a>low</h1><h2 id="上传木马"><a href="#上传木马" class="headerlink" title="上传木马"></a>上传木马</h2><p>首先，查看一下源码，如下：</p>
+<pre><code>&lt;?php 
+if (isset($_POST[&apos;Upload&apos;])) { 
+
+        $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;; 
+        $target_path = $target_path . basename( $_FILES[&apos;uploaded&apos;][&apos;name&apos;]); 
+
+        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) { 
+
+            echo &apos;&lt;pre&gt;&apos;; 
+            echo &apos;Your image was not uploaded.&apos;; 
+            echo &apos;&lt;/pre&gt;&apos;; 
+
+          } else { 
+
+            echo &apos;&lt;pre&gt;&apos;; 
+            echo $target_path . &apos; succesfully uploaded!&apos;; 
+            echo &apos;&lt;/pre&gt;&apos;; 
+
+        } 
+
+    } 
+?&gt;
+</code></pre><p>从源码中可以看出，这个<strong>low</strong>级别的是比较简单的，其中在<strong>if</strong>判断中，只要上传了对象，就可以上传成功，因此我们可以直接上传包含<strong>一句话木马</strong>的<strong>PHP</strong>脚本。木马脚本如下：<br><img src="https://i.loli.net/2019/04/01/5ca1f42357535.jpg" alt=""><br>然后在DVWA页面中上传我们的脚本文件，如下图可知上传成功：<br><img src="https://i.loli.net/2019/04/01/5ca1f7073b7d4.jpg" alt=""><br>接下来可以复制路径，访问我们上传的文件，发现如图所示：<br><img src="https://i.loli.net/2019/04/01/5ca1f77d367d3.jpg" alt=""><br>可以看到什么也没有，其实这已经代表我们上传成功了，接下来需要我们使用<strong>中国菜刀</strong>来连接。</p>
+<h2 id="菜刀连接"><a href="#菜刀连接" class="headerlink" title="菜刀连接"></a>菜刀连接</h2><p>上传成功之后就可以使用我们的菜刀来连接了，中国菜刀的使用也很简单，在使用之前最好把电脑上的安全软件先关闭，要不然菜刀一运行就被杀掉了，打开菜刀之后，直接在主页面右键，点击添加，如图所示：<br><img src="https://i.loli.net/2019/04/01/5ca1fb30dffce.jpg" alt=""><br>添加成功之后，就可以得到下面的界面：<br><img src="https://i.loli.net/2019/04/01/5ca1fb9f48474.jpg" alt=""><br>可以看到我们传上去的php脚本文件，到此，我们可以删除，下载，添加，修改这个网站的所有内容。</p>
+<h1 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h1><p>首先，我们来看一下<strong>medium</strong>级别的源码</p>
+<pre><code>&lt;?php 
+if (isset($_POST[&apos;Upload&apos;])) { 
+
+        $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;; 
+        $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]); 
+        $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;]; 
+        $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;]; 
+        $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;]; 
+
+        if (($uploaded_type == &quot;image/jpeg&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){ 
+
+
+            if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) { 
+
+                echo &apos;&lt;pre&gt;&apos;; 
+                echo &apos;Your image was not uploaded.&apos;; 
+                echo &apos;&lt;/pre&gt;&apos;; 
+
+              } else { 
+
+                echo &apos;&lt;pre&gt;&apos;; 
+                echo $target_path . &apos; succesfully uploaded!&apos;; 
+                echo &apos;&lt;/pre&gt;&apos;; 
+
+                } 
+        } 
+        else{ 
+            echo &apos;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&apos;; 
+        } 
+    } 
+?&gt;
+</code></pre><p>查看源码，发现其中<strong>if (($uploaded_type == “image/jpeg”) &amp;&amp; ($uploaded_size &lt; 100000))</strong>这里限制了上传的文件类型只能是<strong>image/jpeg</strong>格式的和文件的大小要小于<strong>100000</strong>个字节，我们可以还按上面的方法试一下，发现如下图所示：<br><img src="https://i.loli.net/2019/04/01/5ca2050c79882.jpg" alt=""><br>我们发现这样是不可行的，因此要另寻其径了，我们可以采用修改上传文件类型（mime）来上传我们的脚本文件，首先先打开抓包工具<strong>burp suite</strong>，并设置好浏览器代理，然后上传在<strong>low</strong>中所用的脚本文件，上传后抓到包如图所示：<br><img src="https://i.loli.net/2019/04/01/5ca2044a34b3f.jpg" alt=""><br>然后就可以上传成功了，接下来就可以愉快的连菜刀了，和上面的步骤一样，就不多作介绍了。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p><strong>mime</strong></p>
+<blockquote>
+<p>MIME(Multipurpose Internet Mail Extensions)多用途互联网邮件扩展类型。是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。每个MIME类型由两部分组成，前面是数据的大类别，后面定义具体的种类。</p>
+</blockquote>
+<p><strong>常见的mime</strong></p>
+<ul>
+<li>超文本标记语言文本 .html text/html</li>
+<li>xml文档 .xml text/xml</li>
+<li>XHTML文档 .xhtml application/xhtml+xml</li>
+<li>普通文本 .txt text/plain</li>
+<li>RTF文本 .rtf application/rtf</li>
+<li>PDF文档 .pdf application/pdf</li>
+<li>Microsoft Word文件 .word application/msword</li>
+<li>PNG图像 .png image/png</li>
+<li>GIF图形 .gif image/gif</li>
+<li>JPEG图形 .jpeg,.jpg image/jpeg</li>
+<li>au声音文件 .au audio/basic</li>
+<li>GZIP文件 .gz application/x-gzip</li>
+<li>TAR文件 .tar application/x-tar</li>
+<li>任意的二进制数据 application/octet-stream</li>
+</ul>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/04/01/DVWA（文件上传篇）/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA（文件上传篇）">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DVWA漏洞靶机环境搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -888,74 +1039,6 @@
         
 <div class="counter-tag counter">
     <span id="/2019/02/05/交互模式与脚本模式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的交互式编程与脚本式编程">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-人生苦短，我用python" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/20/人生苦短，我用python/" class="article-date">
-  	<time datetime="2019-01-20T07:41:18.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/20/人生苦短，我用python/">
-        人生苦短，我用python
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Python是什么"><a href="#Python是什么" class="headerlink" title="Python是什么"></a>Python是什么</h1><p><strong> python </strong>是一种面向对象、解释型计算机程序设计语言，由Guido van Rossum于1989年圣诞节为打发无聊时间，而开发的一个新的脚本解释程序，可以感觉下什么叫牛人，是ABC语言的一种继承，至于为什么选中Python作为语言名字，是因为他是一叫Monty Python的喜剧团体的爱好者，第一个公开发行版发行于1991年。<br>他的设计哲学是优雅，明确，简单，完全的面向对象。函数，模块，数字，字符串都是对象，不像Java中还有基本类型，在Python中一切皆对象。</p>
-<h1 id="为什么用Python"><a href="#为什么用Python" class="headerlink" title="为什么用Python"></a>为什么用Python</h1><p>这个问题往往是入门者第一个问题，对此我在一本书找到了这样的解答：<br><strong>软件质量</strong><br><strong>开发效率</strong><br><strong>程序的可移植性</strong><br><strong>众多标准库支持</strong><br><strong>组件集成</strong><br><strong>享受乐趣</strong><br>我自己感觉python还是比较简单的，相对于c语言和java语言书写起来都相对比较简单，但也不能说python就能完胜于其他语言，只能说各有千秋，对于python语言，我总结几点就是：<br><strong>代码量小</strong><br><strong>维护成本低</strong><br><strong>编程效率高</strong><br>同一样问题，用不同的语言解决，代码量差距太多了，一般情况下python是java的1/5，所以说人数苦短，我用python，多留点时间学习其他的，就算不学习，多点时间娱乐也好啊，哈哈。</p>
-<h1 id="Python是脚本语言吗"><a href="#Python是脚本语言吗" class="headerlink" title="Python是脚本语言吗"></a>Python是脚本语言吗</h1><p>其实它是一种多用户语言，至于为什么大家的第一感觉是脚本语言，我是感觉人们用它直接写一个文件，不需要什么编译，跟脚本似得，直接运行的就行了。所以说我也很难有一个确定答案。<br><strong>脚本</strong>：可以写一些辅助自己开的脚本，就比如，Android开发，会涉及到一常用的命令，但是如果是在windows用bat写，这样弄到mac就没法运行的，所以可以用python写。</p>
-<h2 id="Python版Hello-World"><a href="#Python版Hello-World" class="headerlink" title="Python版Hello World"></a>Python版Hello World</h2><p>我感觉学任何一门语言都有一个hello world的过程，python也是如此，因为通过最简单的你会学习到该语言的一个最基本的程序框架和运行过程。<br>python中输出helloworld我感觉是最简单的了，因为它值需要一行。<br><code>print （&#39;hello world&#39;）</code><br>顺利的话你会看到hello world的输出，是不是感觉好简单，对，你没看错，就这么简单，现在你可以说你是一个python程序员了。</p>
-<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p>  在学习过程中，大家也要做好python2和python3的区别，有些时候可能你的代码没有错，是用错了python版本的编译器。</p>
-<h1 id="end！"><a href="#end！" class="headerlink" title="end！"></a>end！</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/01/20/人生苦短，我用python/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="人生苦短，我用python">
          &nbsp;
         view
     </span>
