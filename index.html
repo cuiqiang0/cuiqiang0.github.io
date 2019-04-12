@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/漏洞复现/" style="font-size: 20px;">漏洞复现</a>
+						<a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 20px;">漏洞复现</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,87 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-图片隐写2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/11/图片隐写2/" class="article-date">
+  	<time datetime="2019-04-11T13:17:13.000Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/11/图片隐写2/">
+        图片隐写
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文写的是在<strong>kali Linux</strong>系统完成的一道图片隐写的做法，在<strong>Windows</strong>系统我也试着用了，但是感觉<strong>scalpel</strong>这个工具与<strong>Windows</strong>不兼容，最后修复图片的时候总是跑不出来，因此只能改为<strong>kali</strong>，我不知道为啥<strong>Windows</strong>不能跑出来，希望有知道的大佬能告诉我。</p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
+<li>kali Linux</li>
+<li>binwalk</li>
+<li>foremost</li>
+<li>scalpel</li>
+<li>winhex</li>
+</ul>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>链接：<a href="http://daka.whaledu.com:9999/challenges" target="_blank" rel="noopener">http://daka.whaledu.com:9999/challenges</a>  <strong>隐写题（黑客透视镜）</strong></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先，对于图片隐写的题目，都是常规操作来一波，先查看了一下属性，拉进记事本之后发现什么也没有发现，然后就是对图片进行分析了，我首先使用的是<strong>binwalk</strong>，分析如下：<br><img src="https://i.loli.net/2019/04/12/5cafe5df3f44b.png" alt=""><br>分析了一下，发现这个图片包含三个png图片，因此接下来就是把图片分离出来了，我用的是<strong>foremost</strong>，分离如下：<br><img src="https://i.loli.net/2019/04/12/5cafe6ce9d2f8.png" alt=""><br>按照正常情况下，应该能分离出三个图片，可是分离之后我发现并不是，得到的文件里只有这个<br><img src="https://i.loli.net/2019/04/12/5cafe736ce052.png" alt=""><br>这说明并没有成功，这就使我很纳闷了，然后我用<strong>16进制工具winhex</strong>查看了一下图片的十六进制，并百度搜索了一下<strong>jpg图片的文件头和文件尾</strong>。</p>
+<blockquote>
+<p>JPEG (jpg) 文件头：FFD8FF 文件尾：FF D9</p>
+</blockquote>
+<p><strong>winhex</strong>打开得到：<br><img src="https://i.loli.net/2019/04/12/5cafeb6a78fcc.png" alt=""><br><img src="https://i.loli.net/2019/04/12/5cafeb7d374bc.png" alt="">　<br><img src="https://i.loli.net/2019/04/12/5cafeb90c66a7.png" alt=""><br>做到这里，我就百度了一下文件修复文具，找到一个<strong>scalpel</strong>，说是很强大，其实确实是，挺好用的，在<strong>kali</strong>上，你需要下载<strong>scalpel的配置文件scalpel.conf</strong>，也可以在Windows上下载一个复制上去，然后你需要配置<strong>scalpel.conf</strong>，如下图：<br><img src="https://i.loli.net/2019/04/12/5cafee3535e82.png" alt=""><br>然后就可以在<strong>kali</strong>上运行，如下图：<br><img src="https://i.loli.net/2019/04/12/5caff0ec55670.png" alt=""><br>打开<strong>flag</strong>文件看到分离的图片：<br><img src="https://i.loli.net/2019/04/12/5caff1a942cfa.png" alt=""></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术分享/">技术分享</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/04/11/图片隐写2/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="图片隐写">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-共存py两种版本的方法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -1001,95 +1082,6 @@ if (isset($_POST[&apos;Upload&apos;])) {
         
 <div class="counter-tag counter">
     <span id="/2019/03/25/strip用法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="Python中strip()、lstrip()、rstrip()用法">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-win7系统安装" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/23/win7系统安装/" class="article-date">
-  	<time datetime="2019-03-23T02:39:25.000Z" itemprop="datePublished">2019-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/23/win7系统安装/">
-        windows操作系统的安装
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  本篇文是用U盘制作系统启动盘，来重装电脑系统，安装的是Win7操作系统，其他系统的安装方法大同小异。</p>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><blockquote>
-<p>win7操作系统镜像文件<br>大白菜U盘启动盘制作工具<br>8G以上的U盘</p>
-</blockquote>
-<h1 id="U盘启动盘制作"><a href="#U盘启动盘制作" class="headerlink" title="U盘启动盘制作"></a>U盘启动盘制作</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><blockquote>
-<p>下载并且安装好大白菜装机版，打开安装好的大白菜装机版，插入u盘等待软件成功读取到u盘之后，点击“一键制&gt; 作启动u盘”进入下一步操作。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95aaab8cc9d.jpg" alt=""></p>
-</blockquote>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><blockquote>
-<p>在弹出的信息提示窗口中，点击“确定”进入下一步操作。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95ab34ad850.jpg" alt=""></p>
-</blockquote>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><blockquote>
-<p>耐心等待大白菜装机版u盘制作工具对u盘写入大白菜相关数据的过程。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95ab6cbc1f9.jpg" alt=""></p>
-</blockquote>
-<h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><blockquote>
-<p>完成写入之后，在弹出的信息提示窗口中，点击“是（Y）”进入模拟电脑。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95ab9d30723.jpg" alt=""></p>
-</blockquote>
-<h2 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h2><blockquote>
-<p>模拟电脑成功启动说明大白菜u盘启动盘已经制作成功，按住Ctrl+Alt释放鼠标，点击关闭窗口完成操作。如下&gt;图所示<br><img src="https://i.loli.net/2019/03/23/5c95abd71b173.jpg" alt=""></p>
-</blockquote>
-<h3 id="到此我们的系统启动盘已经制作完成，我演示的是用大白菜做启动盘，其实制作启动盘的软件有很多，有兴趣的可以去网上自己查找，用这个软件的好处就是可以在装系统的时候有良好的图形化界面，适合新手操作和学习-。"><a href="#到此我们的系统启动盘已经制作完成，我演示的是用大白菜做启动盘，其实制作启动盘的软件有很多，有兴趣的可以去网上自己查找，用这个软件的好处就是可以在装系统的时候有良好的图形化界面，适合新手操作和学习-。" class="headerlink" title="到此我们的系统启动盘已经制作完成，我演示的是用大白菜做启动盘，其实制作启动盘的软件有很多，有兴趣的可以去网上自己查找，用这个软件的好处就是可以在装系统的时候有良好的图形化界面，适合新手操作和学习 。"></a>到此我们的系统启动盘已经制作完成，我演示的是用大白菜做启动盘，其实制作启动盘的软件有很多，有兴趣的可以去网上自己查找，用这个软件的好处就是可以在装系统的时候有良好的图形化界面，适合新手操作和学习 。</h3><h1 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h1><h2 id="第一步-1"><a href="#第一步-1" class="headerlink" title="第一步"></a>第一步</h2><p>  将制作好的大白菜u盘启动盘插入usb接口（台式用户建议将u盘插在主机机箱后置的usb接口上），然后重启电脑，出现开机画面时，通过使用启动快捷键引导u盘启动进入到大白菜主菜单界面，选择“【02】运行大白菜Win8PE防蓝屏版（新电脑）”回车确认。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95bc28397d4.jpg" alt=""></p>
-<h2 id="第二步-1"><a href="#第二步-1" class="headerlink" title="第二步"></a>第二步</h2><p>  登录大白菜装机版pe系统桌面，系统会自动弹出大白菜PE装机工具窗口，点击“浏览（B）”进入下一步操作。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95bc60426ca.jpg" alt=""></p>
-<h2 id="第三步-1"><a href="#第三步-1" class="headerlink" title="第三步"></a>第三步</h2><p>  点击打开存放在u盘中的ghost win7系统镜像包，点击“打开（O）”后进入下一步操作。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95bc9cebf66.jpg" alt=""></p>
-<h2 id="第四步-1"><a href="#第四步-1" class="headerlink" title="第四步"></a>第四步</h2><p>  等待大白菜PE装机工具提取所需的系统文件后，在下方选择一个磁盘分区用于安装系统使用，然后点击“确定（Y）”进入下一步操作。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95be7c4af8a.jpg" alt=""></p>
-<h2 id="第五步-1"><a href="#第五步-1" class="headerlink" title="第五步"></a>第五步</h2><p>  点击“确定（Y）”进入系统安装窗口。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95beaa4cc7f.jpg" alt=""></p>
-<h2 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h2><p>  此时耐心等待系统文件释放至指定磁盘分区的过程结束。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95bee03c868.jpg" alt=""></p>
-<h2 id="第七步"><a href="#第七步" class="headerlink" title="第七步"></a>第七步</h2><p>  释放完成后，电脑会重新启动，稍后将继续执行安装win7系统后续的安装步骤，所有安装完成之后便可进入到win7系统桌面。如下图所示<br><img src="https://i.loli.net/2019/03/23/5c95bf129e4e3.jpg" alt=""></p>
-<h4 id="以上就是大白菜装机版u盘安装win7系统使用教程，有遇到此类情况或者是不懂如何安装ghost-win7系统的用户，可以尝试以上的大白菜使用教程操作看看，希望以上的大白菜使用教程可以给大家带来更多的帮助。"><a href="#以上就是大白菜装机版u盘安装win7系统使用教程，有遇到此类情况或者是不懂如何安装ghost-win7系统的用户，可以尝试以上的大白菜使用教程操作看看，希望以上的大白菜使用教程可以给大家带来更多的帮助。" class="headerlink" title="以上就是大白菜装机版u盘安装win7系统使用教程，有遇到此类情况或者是不懂如何安装ghost win7系统的用户，可以尝试以上的大白菜使用教程操作看看，希望以上的大白菜使用教程可以给大家带来更多的帮助。"></a>以上就是大白菜装机版u盘安装win7系统使用教程，有遇到此类情况或者是不懂如何安装ghost win7系统的用户，可以尝试以上的大白菜使用教程操作看看，希望以上的大白菜使用教程可以给大家带来更多的帮助。</h4>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/03/23/win7系统安装/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="windows操作系统的安装">
          &nbsp;
         view
     </span>

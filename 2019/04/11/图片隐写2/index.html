@@ -3,23 +3,34 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>githu+hexo搭建个人博客 | 37° &#39;s blog</title>
+  <title>图片隐写 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总结一下我自己搭建博客的过程，感觉自己还是挺慢的，实验室让我们自己搭建博客的时候我感觉很难弄，当弄好了之后我感觉也就那样吧，我是看了许多别人的博客和视频，自己感觉他们弄的有一些东西说的不是很详细，或许我的这一篇写的也不是很完整，希望有大佬可以批评指教。 前言  首先说一下为什么选择github+hexo搭建博客吧，我感觉最直接的就是不用一分钱，对于这种免费的事情，我认为大家都乐意去做，哈哈。另外还">
+  <meta name="description" content="前言本文写的是在kali Linux系统完成的一道图片隐写的做法，在Windows系统我也试着用了，但是感觉scalpel这个工具与Windows不兼容，最后修复图片的时候总是跑不出来，因此只能改为kali，我不知道为啥Windows不能跑出来，希望有知道的大佬能告诉我。 工具 kali Linux binwalk foremost scalpel winhex  题目链接：http://daka">
+<meta name="keywords" content="技术分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="githu+hexo搭建个人博客">
-<meta property="og:url" content="http://yoursite.com/2019/01/17/博客搭建/index.html">
+<meta property="og:title" content="图片隐写">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/图片隐写2/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="总结一下我自己搭建博客的过程，感觉自己还是挺慢的，实验室让我们自己搭建博客的时候我感觉很难弄，当弄好了之后我感觉也就那样吧，我是看了许多别人的博客和视频，自己感觉他们弄的有一些东西说的不是很详细，或许我的这一篇写的也不是很完整，希望有大佬可以批评指教。 前言  首先说一下为什么选择github+hexo搭建博客吧，我感觉最直接的就是不用一分钱，对于这种免费的事情，我认为大家都乐意去做，哈哈。另外还">
+<meta property="og:description" content="前言本文写的是在kali Linux系统完成的一道图片隐写的做法，在Windows系统我也试着用了，但是感觉scalpel这个工具与Windows不兼容，最后修复图片的时候总是跑不出来，因此只能改为kali，我不知道为啥Windows不能跑出来，希望有知道的大佬能告诉我。 工具 kali Linux binwalk foremost scalpel winhex  题目链接：http://daka">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T13:12:20.737Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafe5df3f44b.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafe6ce9d2f8.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafe736ce052.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafeb6a78fcc.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafeb7d374bc.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafeb90c66a7.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5cafee3535e82.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5caff0ec55670.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/12/5caff1a942cfa.png">
+<meta property="og:updated_time" content="2019-04-12T02:03:01.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="githu+hexo搭建个人博客">
-<meta name="twitter:description" content="总结一下我自己搭建博客的过程，感觉自己还是挺慢的，实验室让我们自己搭建博客的时候我感觉很难弄，当弄好了之后我感觉也就那样吧，我是看了许多别人的博客和视频，自己感觉他们弄的有一些东西说的不是很详细，或许我的这一篇写的也不是很完整，希望有大佬可以批评指教。 前言  首先说一下为什么选择github+hexo搭建博客吧，我感觉最直接的就是不用一分钱，对于这种免费的事情，我认为大家都乐意去做，哈哈。另外还">
+<meta name="twitter:title" content="图片隐写">
+<meta name="twitter:description" content="前言本文写的是在kali Linux系统完成的一道图片隐写的做法，在Windows系统我也试着用了，但是感觉scalpel这个工具与Windows不兼容，最后修复图片的时候总是跑不出来，因此只能改为kali，我不知道为啥Windows不能跑出来，希望有知道的大佬能告诉我。 工具 kali Linux binwalk foremost scalpel winhex  题目链接：http://daka">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/12/5cafe5df3f44b.png">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -213,11 +224,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-博客搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-图片隐写2" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/17/博客搭建/" class="article-date">
-  	<time datetime="2019-01-17T07:41:18.000Z" itemprop="datePublished">2019-01-17</time>
+      <a href="/2019/04/11/图片隐写2/" class="article-date">
+  	<time datetime="2019-04-11T13:17:13.000Z" itemprop="datePublished">2019-04-11</time>
 </a>
     </div>
   
@@ -230,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      githu+hexo搭建个人博客
+      图片隐写
       
     </h1>
   
@@ -239,12 +250,16 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术分享/">技术分享</a></li></ul>
+	</div>
+
         
 
         
           
 <div class="counter-tag counter">
-    <span id="/2019/01/17/博客搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="githu+hexo搭建个人博客">
+    <span id="/2019/04/11/图片隐写2/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="图片隐写">
          &nbsp;
         view
     </span>
@@ -257,16 +272,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>总结一下我自己搭建博客的过程，感觉自己还是挺慢的，实验室让我们自己搭建博客的时候我感觉很难弄，当弄好了之后我感觉也就那样吧，我是看了许多别人的博客和视频，自己感觉他们弄的有一些东西说的不是很详细，或许我的这一篇写的也不是很完整，希望有大佬可以批评指教。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  首先说一下为什么选择github+hexo搭建博客吧，我感觉最直接的就是不用一分钱，对于这种免费的事情，我认为大家都乐意去做，哈哈。另外还有其他的好处，比如</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文写的是在<strong>kali Linux</strong>系统完成的一道图片隐写的做法，在<strong>Windows</strong>系统我也试着用了，但是感觉<strong>scalpel</strong>这个工具与<strong>Windows</strong>不兼容，最后修复图片的时候总是跑不出来，因此只能改为<strong>kali</strong>，我不知道为啥<strong>Windows</strong>不能跑出来，希望有知道的大佬能告诉我。</p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
+<li>kali Linux</li>
+<li>binwalk</li>
+<li>foremost</li>
+<li>scalpel</li>
+<li>winhex</li>
+</ul>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>链接：<a href="http://daka.whaledu.com:9999/challenges" target="_blank" rel="noopener">http://daka.whaledu.com:9999/challenges</a>  <strong>隐写题（黑客透视镜）</strong></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先，对于图片隐写的题目，都是常规操作来一波，先查看了一下属性，拉进记事本之后发现什么也没有发现，然后就是对图片进行分析了，我首先使用的是<strong>binwalk</strong>，分析如下：<br><img src="https://i.loli.net/2019/04/12/5cafe5df3f44b.png" alt=""><br>分析了一下，发现这个图片包含三个png图片，因此接下来就是把图片分离出来了，我用的是<strong>foremost</strong>，分离如下：<br><img src="https://i.loli.net/2019/04/12/5cafe6ce9d2f8.png" alt=""><br>按照正常情况下，应该能分离出三个图片，可是分离之后我发现并不是，得到的文件里只有这个<br><img src="https://i.loli.net/2019/04/12/5cafe736ce052.png" alt=""><br>这说明并没有成功，这就使我很纳闷了，然后我用<strong>16进制工具winhex</strong>查看了一下图片的十六进制，并百度搜索了一下<strong>jpg图片的文件头和文件尾</strong>。</p>
 <blockquote>
-<p>全是静态文件，访问速度快；<br>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；<br>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；<br>博客内容可以轻松打包、转移、发布到其它平台；</p>
+<p>JPEG (jpg) 文件头：FFD8FF 文件尾：FF D9</p>
 </blockquote>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>我是用的Windows系统搭建的，其他系统请另寻捷径，其实也都没有多大差距，但有时候一点小问题都能让你不想继续下去，所以还是找相应系统的教程比较好。在开始一切之前，你必须已经：</p>
-<blockquote>
-<p>有一个github账号，没有的话去注册一个；<br>安装了node.js、npm，并了解相关基础知识；<br>安装了git for windows（或者其它git客户端）</p>
-</blockquote>
-
+<p><strong>winhex</strong>打开得到：<br><img src="https://i.loli.net/2019/04/12/5cafeb6a78fcc.png" alt=""><br><img src="https://i.loli.net/2019/04/12/5cafeb7d374bc.png" alt="">　<br><img src="https://i.loli.net/2019/04/12/5cafeb90c66a7.png" alt=""><br>做到这里，我就百度了一下文件修复文具，找到一个<strong>scalpel</strong>，说是很强大，其实确实是，挺好用的，在<strong>kali</strong>上，你需要下载<strong>scalpel的配置文件scalpel.conf</strong>，也可以在Windows上下载一个复制上去，然后你需要配置<strong>scalpel.conf</strong>，如下图：<br><img src="https://i.loli.net/2019/04/12/5cafee3535e82.png" alt=""><br>然后就可以在<strong>kali</strong>上运行，如下图：<br><img src="https://i.loli.net/2019/04/12/5caff0ec55670.png" alt=""><br>打开<strong>flag</strong>文件看到分离的图片：<br><img src="https://i.loli.net/2019/04/12/5caff1a942cfa.png" alt=""></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
       
     </div>
     
@@ -275,18 +295,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/20/人生苦短，我用python/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          人生苦短，我用python
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/15/title/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">My first blog</div>
+    <a href="/2019/04/10/共存py两种版本的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">两种py版本共存的方法</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -296,7 +307,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="博客搭建" data-title="githu+hexo搭建个人博客" data-url="http://yoursite.com/2019/01/17/博客搭建/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="githu+hexo搭建个人博客">
+<div class="ds-share share" data-thread-key="图片隐写2" data-title="图片隐写" data-url="http://yoursite.com/2019/04/11/图片隐写2/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="图片隐写">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
