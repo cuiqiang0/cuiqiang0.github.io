@@ -211,6 +211,89 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-python字典，数组推导式" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/26/python字典，数组推导式/" class="article-date">
+  	<time datetime="2019-03-26T02:19:53.000Z" itemprop="datePublished">2019-03-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/python字典，数组推导式/">
+        python的列表推导式，字典推导式和三元运算符
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h1><p>在python中，生成列表的方式有很多，今天我们来说一下用列表推导式生成列表，用列表推导式可以快速的生成一个列表，并且代码比较简洁，再说点其中的好处就是，可以用来装**，哈哈，自己脑补！我们来说一下列表推导式的简单的用法。</p>
+<p><strong>列表推导式：帮助我们快速生成包含一堆数据的列表</strong></p>
+<h2 id="1，快速生成一段连续的数字"><a href="#1，快速生成一段连续的数字" class="headerlink" title="1，快速生成一段连续的数字"></a>1，快速生成一段连续的数字</h2><blockquote>
+<p>[i for i in range(10)]<br>[0,1,2,3,4,5,6,7,8,9]</p>
+</blockquote>
+<h2 id="2-可以在一些字符串中填入字符"><a href="#2-可以在一些字符串中填入字符" class="headerlink" title="2,可以在一些字符串中填入字符"></a>2,可以在一些字符串中填入字符</h2><blockquote>
+<p>[“10月{}日”，format（i）for i in range(1,5)]<br>[“10月1日”,”10月2日”,”10月3日”,”10月4日”]<br><strong>注意不包含10月5日</strong></p>
+</blockquote>
+<p>这些方法只是其中的一些小方法，大家使用熟练之后发现许多地方多可以用的到的，并且在使用的时候还可以嵌套使用的。</p>
+<h1 id="字典推导式"><a href="#字典推导式" class="headerlink" title="字典推导式"></a>字典推导式</h1><p><strong>字典推导式：帮助我们快速生成一堆数据的字典</strong></p>
+<blockquote>
+<p>{i:i for i in range(10)}<br>{0,1,2,3,4,5,6,7,8,9}<br>{“a{}”.format(i):10 for i in range(3)}<br>{“a0”:10,”a1”:10,”a3”:10}<br><strong>字典推导式的用法基本上和列表推导式是相同的！</strong></p>
+</blockquote>
+<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><p><strong>三元运算符：即if后面的条件成立，就把if前面的结果赋值给前面的变量，否则把else后面的结果赋值给变量。</strong></p>
+<h3 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h3><blockquote>
+<p>a=10 if 4&gt;3 else 20<br>a=10</p>
+</blockquote>
+<blockquote>
+<p>a=10 if 4&lt;3 else 20<br>a=20</p>
+</blockquote>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/03/26/python字典，数组推导式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的列表推导式，字典推导式和三元运算符">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-strip用法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">

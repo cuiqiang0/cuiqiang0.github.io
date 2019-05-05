@@ -3,23 +3,28 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>python类型转换 | 37° &#39;s blog</title>
+  <title>python四种交换值的方法 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="int(x [,base ])    将x转换为一个整数 long(x [,base ])    将x转换为一个长整数 float(x )    将x转换到一个浮点数 complex(real [,imag ])    创建一个复数 str(x )    将对象 x 转换为字符串 repr(x )    将对象 x 转换为表达式字符串 eval(str )    用来计算在字符串中的有效Pyth">
+  <meta name="description" content="一第一种方法是运用媒介的方法，找到一个中间值来实现两个数的交换。  a=3b=4c=0c=aa=bb=c  二第二种是python独有的一种方法。  a=3b=4a,b=4,3   三第三种是一种简单的算法。  a = a + bb = a - ba = a - b  四第四种是通过异或来实现的。  a = a^bb = a^b    # b = (a^b)^b = aa = a^b    # a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python类型转换">
-<meta property="og:url" content="http://yoursite.com/2019/04/28/python类型转换/index.html">
+<meta property="og:title" content="python四种交换值的方法">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/python四种交换值的方法/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="int(x [,base ])    将x转换为一个整数 long(x [,base ])    将x转换为一个长整数 float(x )    将x转换到一个浮点数 complex(real [,imag ])    创建一个复数 str(x )    将对象 x 转换为字符串 repr(x )    将对象 x 转换为表达式字符串 eval(str )    用来计算在字符串中的有效Pyth">
+<meta property="og:description" content="一第一种方法是运用媒介的方法，找到一个中间值来实现两个数的交换。  a=3b=4c=0c=aa=bb=c  二第二种是python独有的一种方法。  a=3b=4a,b=4,3   三第三种是一种简单的算法。  a = a + bb = a - ba = a - b  四第四种是通过异或来实现的。  a = a^bb = a^b    # b = (a^b)^b = aa = a^b    # a">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-28T11:17:24.198Z">
+<meta property="og:image" content="https://i.loli.net/2019/05/05/5ccecc34197a0.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/05/05/5ccecc8260479.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/05/05/5ccecd10d972c.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/05/05/5ccecd7a0c11d.jpg">
+<meta property="og:updated_time" content="2019-05-05T11:50:39.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python类型转换">
-<meta name="twitter:description" content="int(x [,base ])    将x转换为一个整数 long(x [,base ])    将x转换为一个长整数 float(x )    将x转换到一个浮点数 complex(real [,imag ])    创建一个复数 str(x )    将对象 x 转换为字符串 repr(x )    将对象 x 转换为表达式字符串 eval(str )    用来计算在字符串中的有效Pyth">
+<meta name="twitter:title" content="python四种交换值的方法">
+<meta name="twitter:description" content="一第一种方法是运用媒介的方法，找到一个中间值来实现两个数的交换。  a=3b=4c=0c=aa=bb=c  二第二种是python独有的一种方法。  a=3b=4a,b=4,3   三第三种是一种简单的算法。  a = a + bb = a - ba = a - b  四第四种是通过异或来实现的。  a = a^bb = a^b    # b = (a^b)^b = aa = a^b    # a">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/05/5ccecc34197a0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -213,11 +218,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-python类型转换" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python四种交换值的方法" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/04/28/python类型转换/" class="article-date">
-  	<time datetime="2019-04-28T11:17:22.000Z" itemprop="datePublished">2019-04-28</time>
+      <a href="/2019/05/05/python四种交换值的方法/" class="article-date">
+  	<time datetime="2019-05-05T08:28:41.000Z" itemprop="datePublished">2019-05-05</time>
 </a>
     </div>
   
@@ -230,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python类型转换
+      python四种交换值的方法
       
     </h1>
   
@@ -244,7 +249,7 @@
         
           
 <div class="counter-tag counter">
-    <span id="/2019/04/28/python类型转换/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python类型转换">
+    <span id="/2019/05/05/python四种交换值的方法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python四种交换值的方法">
          &nbsp;
         view
     </span>
@@ -257,22 +262,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>int(x [,base ])    将x转换为一个整数</li>
-<li>long(x [,base ])    将x转换为一个长整数</li>
-<li>float(x )    将x转换到一个浮点数</li>
-<li>complex(real [,imag ])    创建一个复数</li>
-<li>str(x )    将对象 x 转换为字符串</li>
-<li>repr(x )    将对象 x 转换为表达式字符串</li>
-<li>eval(str )    用来计算在字符串中的有效Python表达式,并返回一个对象</li>
-<li>tuple(s )    将序列 s 转换为一个元组</li>
-<li>list(s )    将序列 s 转换为一个列表</li>
-<li>chr(x )    将一个整数转换为一个字符</li>
-<li>unichr(x )    将一个整数转换为Unicode字符</li>
-<li>ord(x )    将一个字符转换为它的整数值</li>
-<li>hex(x )    将一个整数转换为一个十六进制字符串</li>
-<li>oct(x )    将一个整数转换为一个八进制字符串</li>
-</ul>
+        <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>第一种方法是运用媒介的方法，找到一个中间值来实现两个数的交换。</p>
+<blockquote>
+<p>a=3<br>b=4<br>c=0<br>c=a<br>a=b<br>b=c<br><img src="https://i.loli.net/2019/05/05/5ccecc34197a0.jpg" alt=""></p>
+</blockquote>
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p>第二种是python独有的一种方法。</p>
+<blockquote>
+<p>a=3<br>b=4<br>a,b=4,3</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/05/05/5ccecc8260479.jpg" alt=""></p>
+<h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p>第三种是一种简单的算法。</p>
+<blockquote>
+<p>a = a + b<br>b = a - b<br>a = a - b<br><img src="https://i.loli.net/2019/05/05/5ccecd10d972c.jpg" alt=""></p>
+</blockquote>
+<h1 id="四"><a href="#四" class="headerlink" title="四"></a>四</h1><p>第四种是通过异或来实现的。</p>
+<blockquote>
+<p>a = a^b<br>b = a^b    # b = (a^b)^b = a<br>a = a^b    # a = (a^b)^a = b</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/05/05/5ccecd7a0c11d.jpg" alt=""></p>
 
       
     </div>
@@ -282,18 +289,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/05/05/python四种交换值的方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          python四种交换值的方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/11/图片隐写2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图片隐写</div>
+    <a href="/2019/04/28/python类型转换/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python类型转换</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -303,7 +301,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="python类型转换" data-title="python类型转换" data-url="http://yoursite.com/2019/04/28/python类型转换/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python类型转换">
+<div class="ds-share share" data-thread-key="python四种交换值的方法" data-title="python四种交换值的方法" data-url="http://yoursite.com/2019/05/05/python四种交换值的方法/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python四种交换值的方法">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
