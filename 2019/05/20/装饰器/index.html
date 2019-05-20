@@ -3,27 +3,32 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>python的交互式编程与脚本式编程 | 37° &#39;s blog</title>
+  <title>python装饰器 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
+  <meta name="description" content="前言 装饰器：装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外的功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰&amp;gt; 器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。&amp;gt; 概括的讲，装饰器的作用就是为已经存在的函数或对">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python的交互式编程与脚本式编程">
-<meta property="og:url" content="http://yoursite.com/2019/02/05/交互模式与脚本模式/index.html">
+<meta property="og:title" content="python装饰器">
+<meta property="og:url" content="http://yoursite.com/2019/05/20/装饰器/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
+<meta property="og:description" content="前言 装饰器：装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外的功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰&amp;gt; 器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。&amp;gt; 概括的讲，装饰器的作用就是为已经存在的函数或对">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e08ed6a562.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e0a7032d27.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/21/5c6e0cc9e7010.png">
-<meta property="og:updated_time" content="2019-02-21T02:34:21.633Z">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce261adeefef10330.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce26a416ca7e58914.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce273a81415b91980.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce2748b278e957913.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce27a3d6b7cd40755.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce27c65e481019938.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/20/5ce28469c1aab50925.png">
+<meta property="og:updated_time" content="2019-05-20T10:42:45.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python的交互式编程与脚本式编程">
-<meta name="twitter:description" content="交互式编程交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。 linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在">
-<meta name="twitter:image" content="https://i.loli.net/2019/02/21/5c6e08ed6a562.png">
+<meta name="twitter:title" content="python装饰器">
+<meta name="twitter:description" content="前言 装饰器：装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外的功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰&amp;gt; 器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。&amp;gt; 概括的讲，装饰器的作用就是为已经存在的函数或对">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/20/5ce261adeefef10330.png">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -217,11 +222,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-交互模式与脚本模式" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-装饰器" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/05/交互模式与脚本模式/" class="article-date">
-  	<time datetime="2019-02-05T06:21:19.000Z" itemprop="datePublished">2019-02-05</time>
+      <a href="/2019/05/20/装饰器/" class="article-date">
+  	<time datetime="2019-05-20T07:33:06.000Z" itemprop="datePublished">2019-05-20</time>
 </a>
     </div>
   
@@ -234,7 +239,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python的交互式编程与脚本式编程
+      python装饰器
       
     </h1>
   
@@ -243,12 +248,16 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
         
 
         
           
 <div class="counter-tag counter">
-    <span id="/2019/02/05/交互模式与脚本模式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的交互式编程与脚本式编程">
+    <span id="/2019/05/20/装饰器/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python装饰器">
          &nbsp;
         view
     </span>
@@ -261,10 +270,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="交互式编程"><a href="#交互式编程" class="headerlink" title="交互式编程"></a>交互式编程</h1><p>交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。</p>
-<p>linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。<br>我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在设置好这些之后你就可以在cmd.exe中输入python，可以得到以下界面：<br><img src="https://i.loli.net/2019/02/21/5c6e08ed6a562.png" alt=""><br>出现这个页面，说明你已经进入了python的交互模式，在这里面你可以看到自己所使用python的版本，也可以进行简单的四则运算，python的基本语法，输入输出。<br><strong>例如输出简单的hello world</strong>：你可以输入print (‘hello world’)<br><img src="https://i.loli.net/2019/02/21/5c6e0a7032d27.png" alt=""><br>就可以得到想要的结果。</p>
-<h1 id="脚本式编程"><a href="#脚本式编程" class="headerlink" title="脚本式编程"></a>脚本式编程</h1><p>通过脚本参数调用解释器开始执行脚本，直到脚本执行完毕。当脚本执行完成后，解释器不再有效。</p>
-<p>让我们写一个简单的 Python 脚本程序。所有 Python 文件将以 .py 为扩展名。我们可以用python自带的idle编译器进行编辑，如下图所示：<br><img src="https://i.loli.net/2019/02/21/5c6e0cc9e7010.png" alt=""><br>就输出了简单hello world。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>装饰器：装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外的功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰&gt; 器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。&gt; 概括的讲，装饰器的作用就是<strong>为已经存在的函数或对象添加额外的功能</strong>。</p>
+</blockquote>
+<h1 id="简单的装饰器"><a href="#简单的装饰器" class="headerlink" title="简单的装饰器"></a>简单的装饰器</h1><p><img src="https://i.loli.net/2019/05/20/5ce261adeefef10330.png" alt=""><br>实现过程：python解释器就会从上到下解释代码，当编译到第一行定义了一个函数<strong>fun()1</strong>，但并未执行，然后直接调到第九行执行<strong>@fun1</strong>，这时就会把<strong>fun3()</strong>作为<strong>fun1()</strong>的参数<strong>fun</strong>，然后执行第十三行的调用fun3。需要注意的是当函数装饰的时候其实已经调用了<strong>fun1()</strong>代码，并把<strong>fun2()</strong>函数的引用返回到了装饰器中，当我们调用函数时直接运行的是<strong>fun2()</strong>中的函数体，其中的<strong>fun()</strong>函数是调用的传进来的参数<strong>fun3()</strong>。因此到最后我们实现了<strong>fun3()</strong>函数的功能，并没有添加新的代码。</p>
+<h1 id="两个装饰器"><a href="#两个装饰器" class="headerlink" title="两个装饰器"></a>两个装饰器</h1><p><img src="https://i.loli.net/2019/05/20/5ce26a416ca7e58914.png" alt=""><br>两个装饰器装饰是最后装饰的先调用，两个是如此，多个装饰器和两个方法是类似的。</p>
+<h1 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h1><p><img src="https://i.loli.net/2019/05/20/5ce273a81415b91980.png" alt=""><br>注意带参数的装饰器，在哪里用到参数，就在哪里传参数。</p>
+<h1 id="不定长参数装饰"><a href="#不定长参数装饰" class="headerlink" title="不定长参数装饰"></a>不定长参数装饰</h1><p><img src="https://i.loli.net/2019/05/20/5ce2748b278e957913.png" alt=""><br>不定长参数通过两个特殊变量能接收所有传的参数，同时能在调用的时候也要写上这两个特殊变量，否则就要通过解包来运用传过来的变量。</p>
+<h1 id="return语句装饰"><a href="#return语句装饰" class="headerlink" title="return语句装饰"></a>return语句装饰</h1><p><img src="https://i.loli.net/2019/05/20/5ce27a3d6b7cd40755.png" alt=""><br>带有<strong>return</strong>语句的时候，其实只需要找一个变量接收就可以了。</p>
+<h1 id="装饰器中有参数时"><a href="#装饰器中有参数时" class="headerlink" title="装饰器中有参数时"></a>装饰器中有参数时</h1><p><img src="https://i.loli.net/2019/05/20/5ce27c65e481019938.png" alt=""><br>当装饰器需要传参数时，需要多定义一个函数，让这个函数的引用返回到装饰器中，然后在装饰下面的函数，相当于用了这个参数的装饰器。</p>
+<h1 id="多用装饰器"><a href="#多用装饰器" class="headerlink" title="多用装饰器"></a>多用装饰器</h1><p><img src="https://i.loli.net/2019/05/20/5ce28469c1aab50925.png" alt=""></p>
 <h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
       
     </div>
@@ -274,18 +289,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/02/14/python基本语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          python基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/20/人生苦短，我用python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">人生苦短，我用python</div>
+    <a href="/2019/05/18/进制转换/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python进制转换与位运算</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -295,7 +301,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="交互模式与脚本模式" data-title="python的交互式编程与脚本式编程" data-url="http://yoursite.com/2019/02/05/交互模式与脚本模式/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python的交互式编程与脚本式编程">
+<div class="ds-share share" data-thread-key="装饰器" data-title="python装饰器" data-url="http://yoursite.com/2019/05/20/装饰器/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python装饰器">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>

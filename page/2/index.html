@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 20px;">漏洞复现</a>
+						<a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 20px;">漏洞复现</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,80 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-DVWA漏洞靶机环境搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/28/DVWA漏洞靶机环境搭建/" class="article-date">
+  	<time datetime="2019-03-28T12:56:02.000Z" itemprop="datePublished">2019-03-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/28/DVWA漏洞靶机环境搭建/">
+        DVWA漏洞靶机环境搭建
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括<strong>Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的验证码）、SQL Injection（SQL注入）、SQL Injection（Blind）（SQL盲注）、Weak Session IDs（弱会话标识）、XSS（DOM）（文档对象模型跨站脚本）、XSS（Reflected）（反射型跨站脚本）、XSS（Stored）（存储型跨站脚本）、JavaScript等漏洞。</strong>并且每一种漏洞还分了四种不同级别，在实验中还可以对照不同的等级来比较不同的PHP代码，给出的代码能我们更好的了解相应攻击方式的防御机制。</p>
+</blockquote>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>DVWA：链接：<a href="https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA" target="_blank" rel="noopener">https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA </a><br>提取码：wm9r<br>phpstudy：<a href="http://www.phpstudy.net/" target="_blank" rel="noopener">http://www.phpstudy.net/ </a></p>
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>下载的步骤比较简单，下载好后，解压<strong>PHP study</strong>和<strong>DVWA</strong>，这两个步骤也比较简单，注意PHP study的路径不能有中文，安装好后就可以看到PHP study的主页面如下图：<br><img src="https://i.loli.net/2019/03/29/5c9daa8c70327.png" alt=""><br>之后找到<strong>PHP study</strong>根目录下的<strong>www</strong>目录，如下图：<br><img src="https://i.loli.net/2019/03/29/5c9dab87a5ae9.png" alt=""></p>
+<p>在这里找到根目录后，把解压好的DVWA文件放在<strong>www</strong>目录下，如下图<br><img src="https://i.loli.net/2019/03/29/5c9dae1644382.png" alt=""><br>并且要把文件名改成<strong>DVWA</strong>。<br><img src="https://i.loli.net/2019/03/29/5c9dae8d9ca05.png" alt=""><br>接着用记事本打开DVWA/config/config.inc.php文件。<br><img src="https://i.loli.net/2019/03/29/5c9daeeb22523.png" alt=""><br>保存修改之后把文件的后缀去掉，如图<br><img src="https://i.loli.net/2019/03/29/5c9daf4b95f93.png" alt=""><br>做完这些环境设置就已经完成了，就可以启动<strong>PHP study</strong>并在浏览器上进入<strong>DVWA</strong>网站，链接：<a href="http://localhost/dvwa/setup.php" target="_blank" rel="noopener">http://localhost/dvwa/setup.php</a></p>
+<h1 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h1><p>进入网站之后会显示这个页面，直接跳过就会出现登陆界面<br><img src="https://i.loli.net/2019/03/29/5c9db186b11e7.png" alt=""><br><img src="https://i.loli.net/2019/03/29/5c9db25f33d79.png" alt=""><br>这里是默认的密码。<br><img src="https://i.loli.net/2019/03/29/5c9db3fc43bc9.png" alt=""><br>到这里，整个DVWA的环境已经搭建完毕。</p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞复现/">漏洞复现</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/03/28/DVWA漏洞靶机环境搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA漏洞靶机环境搭建">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-pycham搭建python程序运行环境" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -882,78 +956,6 @@
         
 <div class="counter-tag counter">
     <span id="/2019/01/20/人生苦短，我用python/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="人生苦短，我用python">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-博客搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/17/博客搭建/" class="article-date">
-  	<time datetime="2019-01-17T07:41:18.000Z" itemprop="datePublished">2019-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/17/博客搭建/">
-        githu+hexo搭建个人博客
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总结一下我自己搭建博客的过程，感觉自己还是挺慢的，实验室让我们自己搭建博客的时候我感觉很难弄，当弄好了之后我感觉也就那样吧，我是看了许多别人的博客和视频，自己感觉他们弄的有一些东西说的不是很详细，或许我的这一篇写的也不是很完整，希望有大佬可以批评指教。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  首先说一下为什么选择github+hexo搭建博客吧，我感觉最直接的就是不用一分钱，对于这种免费的事情，我认为大家都乐意去做，哈哈。另外还有其他的好处，比如</p>
-<blockquote>
-<p>全是静态文件，访问速度快；<br>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；<br>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；<br>博客内容可以轻松打包、转移、发布到其它平台；</p>
-</blockquote>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>我是用的Windows系统搭建的，其他系统请另寻捷径，其实也都没有多大差距，但有时候一点小问题都能让你不想继续下去，所以还是找相应系统的教程比较好。在开始一切之前，你必须已经：</p>
-<blockquote>
-<p>有一个github账号，没有的话去注册一个；<br>安装了node.js、npm，并了解相关基础知识；<br>安装了git for windows（或者其它git客户端）</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/01/17/博客搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="githu+hexo搭建个人博客">
          &nbsp;
         view
     </span>
