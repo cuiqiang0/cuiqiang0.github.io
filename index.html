@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 20px;">漏洞复现</a>
+						<a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 15px;">漏洞复现</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,88 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-python的map()函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/22/python的map()函数/" class="article-date">
+  	<time datetime="2019-05-22T00:05:10.000Z" itemprop="datePublished">2019-05-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/python的map()函数/">
+        python的map()函数
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><blockquote>
+<p>map() 会根据提供的函数对指定序列做映射。<br>第一个参数 function 以参数序列中的每一个元素调用 function 函数，&gt; 返回包含每次 function 函数返回值的新列表。</p>
+</blockquote>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>map() 函数语法：<br>map(function, iterable, …)<br><strong>参数</strong><br>function – 函数<br>iterable – 一个或多个序列返回值</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>以下实例展示了 map() 的使用方法：</p>
+<h2 id="计算一个数的平方值"><a href="#计算一个数的平方值" class="headerlink" title="计算一个数的平方值"></a>计算一个数的平方值</h2><p><code>In [7]: def square(x):</code><br><code>...: return x**2</code><br><code>...:</code></p>
+<p><code>In [8]: result =map(square , [1,2,3,4,5])</code></p>
+<p><code>In [9]: for i in result:</code><br><code>...: print(i)</code><br><code>...:</code><br><code>1</code><br><code>4</code><br><code>9</code><br><code>16</code><br><code>25</code></p>
+<h2 id="使用匿名函数"><a href="#使用匿名函数" class="headerlink" title="使用匿名函数"></a>使用匿名函数</h2><p><code>In [11]: result=map(lambda x : x**2 ,[1,2,3,4,5])</code></p>
+<p><code>In [13]: for i in result:</code><br><code>...:     print(i)</code><br><code>...:</code><br><code>1</code><br><code>4</code><br><code>9</code><br><code>16</code><br><code>25</code></p>
+<h2 id="提供了两个列表，对相同位置的列表数据进行相加"><a href="#提供了两个列表，对相同位置的列表数据进行相加" class="headerlink" title="提供了两个列表，对相同位置的列表数据进行相加"></a>提供了两个列表，对相同位置的列表数据进行相加</h2><p><code>In [15]: result=map(lambda x,y :x+y ,[1,3,5,7],[2,4,6,8])</code></p>
+<p><code>In [16]: for i in result:</code><br><code>...:     print(i)</code><br><code>...:</code><br><code>3</code><br><code>7</code><br><code>11</code><br><code>15</code></p>
+<h2 id="修改单词"><a href="#修改单词" class="headerlink" title="修改单词"></a>修改单词</h2><p>假设用户输入的英文名字不规范，没有按照首字母大写，后续字母小写的规则，请利用map()函数，把一个list（包含若干不规范的英文名字）变成一个包含规范英文名字的list：<br><code>In [18]: def modify_name(name):</code><br><code>...:     name=name[0].upper()+name[1:].lower()</code><br><code>...:     return name</code><br><code>...:</code></p>
+<p><code>In [20]: for i in map(modify_name ,</code> <code>[&#39;aDMin&#39;,&#39;USer&#39;,&#39;tOm&#39;]):</code><br><code>...:     print(i)</code><br><code>...:</code><br><code>Admin</code><br><code>User</code><br><code>Tom</code></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用map()函数可以快速的计算出想要的结果，并返回一个数组类型。</p>
+<h1 id="END"><a href="#END" class="headerlink" title="END!"></a>END!</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/05/22/python的map()函数/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的map()函数">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-装饰器" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -943,169 +1025,6 @@ f.close()
         
 <div class="counter-tag counter">
     <span id="/2019/04/03/墨者WebShell代码分析溯源(第6题)/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="墨者WebShell代码分析溯源(第6题)">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-DVWA（文件上传篇）" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/02/DVWA（文件上传篇）/" class="article-date">
-  	<time datetime="2019-04-02T05:59:10.000Z" itemprop="datePublished">2019-04-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/DVWA（文件上传篇）/">
-        DVWA（文件上传篇）
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h2><blockquote>
-<p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。这里上传的文件可以是木马，病毒，恶意脚本或者WebShell等。这种攻击方式是最为直接和有效的，“文件上传”的这个行为是没有问题的，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。<br>文件上传漏洞本身就是一个危害巨大的漏洞，WebShell更是将这种漏洞的利用无限扩大。大多数的上传漏洞被利用后攻击者都会留下WebShell以方便后续进入系统。攻击者在受影响系统放置或者插入WebShell后，可通过该WebShell更轻松，更隐蔽的在服务中为所欲为。</p>
-</blockquote>
-<h2 id="Webshell简介"><a href="#Webshell简介" class="headerlink" title="Webshell简介"></a>Webshell简介</h2><blockquote>
-<p>WebShell就是以asp、php、jsp或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称之为一种网页后门。攻击者在入侵了一个网站后，通常会将这些asp或php后门文件与网站服务器web目录下正常的网页文件混在一起，然后使用浏览器来访问这些后门，得到一个命令执行环境，以达到控制网站服务器的目的（可以上传下载或者修改文件，操作数据库，执行任意命令等）。<br>WebShell后门隐蔽较性高，可以轻松穿越防火墙，访问WebShell时不会留下系统日志，只会在网站的web日志中留下一些数据提交记录，没有经验的管理员不容易发现入侵痕迹。攻击者可以将WebShell隐藏在正常文件中并修改文件时间增强隐蔽性，也可以采用一些函数对WebShell进行编码或者拼接以规避检测。除此之外，通过一句话木马的小马来提交功能更强大的大马可以更容易通过应用本身的检测。<strong>&lt;?php eval($_POST[a]); ?&gt;</strong>就是一个最常见最原始的小马。</p>
-</blockquote>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><strong>中国菜刀</strong>链接：<a href="https://pan.baidu.com/s/1rhPJDj5qAUa5nKT2zseIoA" target="_blank" rel="noopener">https://pan.baidu.com/s/1rhPJDj5qAUa5nKT2zseIoA</a><br>提取码：84h2</p>
-<p><strong>burpsuite</strong>链接：<a href="https://pan.baidu.com/s/1Qe5PyAV5XYrok3DAHxcMlg" target="_blank" rel="noopener">https://pan.baidu.com/s/1Qe5PyAV5XYrok3DAHxcMlg </a><br>提取码：f6e9</p>
-<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p><a href="https://baike.baidu.com/item/中华人民共和国网络安全法/16843044?fr=aladdin" target="_blank" rel="noopener">[https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/16843044?fr=aladdin]</a></p>
-<h1 id="low"><a href="#low" class="headerlink" title="low"></a>low</h1><h2 id="上传木马"><a href="#上传木马" class="headerlink" title="上传木马"></a>上传木马</h2><p>首先，查看一下源码，如下：</p>
-<pre><code>&lt;?php
-if (isset($_POST[&apos;Upload&apos;])) {
-
-        $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-        $target_path = $target_path . basename( $_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-
-        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo &apos;Your image was not uploaded.&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-          }
-          else {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo $target_path . &apos; succesfully uploaded!&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-        }
-
-    }
-?&gt;
-</code></pre><p>从源码中可以看出，这个<strong>low</strong>级别的是比较简单的，其中在<strong>if</strong>判断中，只要上传了对象，就可以上传成功，因此我们可以直接上传包含<strong>一句话木马</strong>的<strong>PHP</strong>脚本。木马脚本如下：<br><img src="https://i.loli.net/2019/04/01/5ca1f42357535.jpg" alt=""></p>
-<p>然后在DVWA页面中上传我们的脚本文件，如下图可知上传成功：</p>
-<p><img src="https://i.loli.net/2019/04/01/5ca1f7073b7d4.jpg" alt=""></p>
-<p>接下来可以复制路径，访问我们上传的文件，发现如图所示：</p>
-<p><img src="https://i.loli.net/2019/04/01/5ca1f77d367d3.jpg" alt=""></p>
-<p>可以看到什么也没有，其实这已经代表我们上传成功了，接下来需要我们使用<strong>中国菜刀</strong>来连接。</p>
-<h2 id="菜刀连接"><a href="#菜刀连接" class="headerlink" title="菜刀连接"></a>菜刀连接</h2><p>上传成功之后就可以使用我们的菜刀来连接了，中国菜刀的使用也很简单，在使用之前最好把电脑上的安全软件先关闭，要不然菜刀一运行就被杀掉了，打开菜刀之后，直接在主页面右键，点击添加，如图所示：<br><img src="https://i.loli.net/2019/04/01/5ca1fb30dffce.jpg" alt=""></p>
-<p>添加成功之后，就可以得到下面的界面：</p>
-<p><img src="https://i.loli.net/2019/04/01/5ca1fb9f48474.jpg" alt=""><br>可以看到我们传上去的php脚本文件，到此，我们可以删除，下载，添加，修改这个网站的所有内容。</p>
-<h1 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h1><p>首先，我们来看一下<strong>medium</strong>级别的源码</p>
-<pre><code>&lt;?php
-if (isset($_POST[&apos;Upload&apos;])) {
-
-        $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-        $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-        $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];
-        $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;];
-        $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];
-
-        if (($uploaded_type == &quot;image/jpeg&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){
-
-
-            if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-                echo &apos;&lt;pre&gt;&apos;;
-                echo &apos;Your image was not uploaded.&apos;;
-                echo &apos;&lt;/pre&gt;&apos;;
-
-              } else {
-
-                echo &apos;&lt;pre&gt;&apos;;
-                echo $target_path . &apos; succesfully uploaded!&apos;;
-                echo &apos;&lt;/pre&gt;&apos;;
-
-                }
-        }
-        else{
-            echo &apos;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&apos;;
-        }
-    }
-?&gt;
-</code></pre><p>查看源码，发现其中<strong>if (($uploaded_type == “image/jpeg”) &amp;&amp; ($uploaded_size &lt; 100000))</strong>这里限制了上传的文件类型只能是<strong>image/jpeg</strong>格式的和文件的大小要小于<strong>100000</strong>个字节，我们可以还按上面的方法试一下，发现如下图所示：<br><img src="https://i.loli.net/2019/04/01/5ca2050c79882.jpg" alt=""><br>我们发现这样是不可行的，因此要另寻其径了，我们可以采用修改上传文件类型（mime）来上传我们的脚本文件，首先先打开抓包工具<strong>burp suite</strong>，并设置好浏览器代理，然后上传在<strong>low</strong>中所用的脚本文件，上传后抓到包如图所示：<br><img src="https://i.loli.net/2019/04/01/5ca2044a34b3f.jpg" alt=""><br>然后就可以上传成功了，接下来就可以愉快的连菜刀了，和上面的步骤一样，就不多作介绍了。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p><strong>mime</strong></p>
-<blockquote>
-<p>MIME(Multipurpose Internet Mail Extensions)多用途互联网邮件扩展类型。是设定某种扩展名的文件用一种应用程序来打开的方式类型，当该扩展名文件被访问的时候，浏览器会自动使用指定应用程序来打开。多用于指定一些客户端自定义的文件名，以及一些媒体文件打开方式。每个MIME类型由两部分组成，前面是数据的大类别，后面定义具体的种类。</p>
-</blockquote>
-<p><strong>常见的mime</strong></p>
-<ul>
-<li>超文本标记语言文本 .html text/html</li>
-<li>xml文档 .xml text/xml</li>
-<li>XHTML文档 .xhtml application/xhtml+xml</li>
-<li>普通文本 .txt text/plain</li>
-<li>RTF文本 .rtf application/rtf</li>
-<li>PDF文档 .pdf application/pdf</li>
-<li>Microsoft Word文件 .word application/msword</li>
-<li>PNG图像 .png image/png</li>
-<li>GIF图形 .gif image/gif</li>
-<li>JPEG图形 .jpeg,.jpg image/jpeg</li>
-<li>au声音文件 .au audio/basic</li>
-<li>GZIP文件 .gz application/x-gzip</li>
-<li>TAR文件 .tar application/x-tar</li>
-<li>任意的二进制数据 application/octet-stream</li>
-</ul>
-<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞复现/">漏洞复现</a></li></ul>
-	</div>
-
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/04/02/DVWA（文件上传篇）/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA（文件上传篇）">
          &nbsp;
         view
     </span>
