@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="37° &#39;s blog">
 <meta property="og:description" content="前言调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。 进入模式通常我们运行程序时，都是在命令行输入：  python xxx.py  当我们想调试一个程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-24T05:49:06.995Z">
+<meta property="og:updated_time" content="2019-05-24T06:08:17.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python的pdb程序调试">
 <meta name="twitter:description" content="前言调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。 进入模式通常我们运行程序时，都是在命令行输入：  python xxx.py  当我们想调试一个程序">
@@ -274,6 +274,14 @@
 <h1 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h1><blockquote>
 <p>l :相当于list，显示当前的代码<br>n :相当于next，向下执行一行代码<br>c :continue，继续执行代码<br>b :break，添加断点<br>clear :删除断点<br>p :print，打印一个变量的值<br>s :step，进入到一个函数<br>a :args，打印所有的形参数据<br>q :quit，退出调试<br>r :return，快速执行到函数的最后一行</p>
 </blockquote>
+<h1 id="交互模式的pdb"><a href="#交互模式的pdb" class="headerlink" title="交互模式的pdb"></a>交互模式的pdb</h1><p>如果想在交互模式进行调试，需要先导入<strong>pdb</strong>模块，在把想调试的程序写到下列的语句中：</p>
+<blockquote>
+<p>import pdb<br>pdb.run(‘fun’)#fun为要调试的函数</p>
+</blockquote>
+<h1 id="程序内埋点"><a href="#程序内埋点" class="headerlink" title="程序内埋点"></a>程序内埋点</h1><blockquote>
+<p>import pdb<br>pdb.set_trace()</p>
+</blockquote>
+<p>首先导入pdb模块，然后在想在进行调试的地方加入<strong>pdb.set_trace()</strong>就可以进入调试模式。</p>
 <h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
       
     </div>
