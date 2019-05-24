@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019 | 37° &#39;s blog</title>
+  <title>python的pdb程序调试 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="37° &#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/page/3/index.html">
+  <meta name="description" content="前言调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。 进入模式通常我们运行程序时，都是在命令行输入：  python xxx.py  当我们想调试一个程序">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的pdb程序调试">
+<meta property="og:url" content="http://yoursite.com/2019/05/24/pdb/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
+<meta property="og:description" content="前言调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。 进入模式通常我们运行程序时，都是在命令行输入：  python xxx.py  当我们想调试一个程序">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-24T05:49:06.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="37° &#39;s blog">
+<meta name="twitter:title" content="python的pdb程序调试">
+<meta name="twitter:description" content="前言调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。 进入模式通常我们运行程序时，都是在命令行输入：  python xxx.py  当我们想调试一个程序">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -209,186 +214,105 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-pdb" class="article article-type-post" itemscope="" itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2019/05/24/pdb/" class="article-date">
+  	<time datetime="2019-05-24T05:37:47.000Z" itemprop="datePublished">2019-05-24</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python的pdb程序调试
       
+    </h1>
+  
+
+      </header>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/05/交互模式与脚本模式/" class="archive-article-date">
-  	<time datetime="2019-02-05T06:21:19.000Z" itemprop="datePublished">2月 5</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/05/交互模式与脚本模式/">
-        python的交互式编程与脚本式编程
+      <div class="article-info article-info-post">
         
-      </a>
-    </h1>
-  
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
 
-        <div class="article-info info-on-left">
-          
-          
+        
 
+        
           
-            
 <div class="counter-tag counter">
-    <span id="/2019/02/05/交互模式与脚本模式/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的交互式编程与脚本式编程">
+    <span id="/2019/05/24/pdb/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python的pdb程序调试">
          &nbsp;
         view
     </span>
 </div>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/20/人生苦短，我用python/" class="archive-article-date">
-  	<time datetime="2019-01-20T07:41:18.000Z" itemprop="datePublished">1月 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/20/人生苦短，我用python/">
-        人生苦短，我用python
         
-      </a>
-    </h1>
-  
-
-        <div class="article-info info-on-left">
-          
-          
-
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/01/20/人生苦短，我用python/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="人生苦短，我用python">
-         &nbsp;
-        view
-    </span>
-</div>
-
-          
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>调试程序有时会很令人头疼。有时候是你忙于工作时间紧张，只想让它尽快成功；有时候是你正在学习一种新的语言，或者试验使用新的方法，并且希望更深入地了解某些功能是如何工作的。无论是哪种情况，调试代码都是必需的，所以在调试器中工作是一个好主意。在python中，可以使用命令行进行调试，来增加工作效率。</p>
+<h1 id="进入模式"><a href="#进入模式" class="headerlink" title="进入模式"></a>进入模式</h1><p>通常我们运行程序时，都是在命令行输入：</p>
+<blockquote>
+<p>python xxx.py</p>
+</blockquote>
+<p>当我们想调试一个程序时，就需要输入下面的命令：</p>
+<blockquote>
+<p>python -m pdb some.py<br>输入命令之后，程序会停留在第一行，等待我们输入下面的命令进行调试。</p>
+</blockquote>
+<h1 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h1><blockquote>
+<p>l :相当于list，显示当前的代码<br>n :相当于next，向下执行一行代码<br>c :continue，继续执行代码<br>b :break，添加断点<br>clear :删除断点<br>p :print，打印一个变量的值<br>s :step，进入到一个函数<br>a :args，打印所有的形参数据<br>q :quit，退出调试<br>r :return，快速执行到函数的最后一行</p>
+</blockquote>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/22/python的map()函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python的map()函数</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/17/博客搭建/" class="archive-article-date">
-  	<time datetime="2019-01-17T07:41:18.000Z" itemprop="datePublished">1月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/17/博客搭建/">
-        githu+hexo搭建个人博客
-        
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/01/17/博客搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="githu+hexo搭建个人博客">
-         &nbsp;
-        view
-    </span>
-</div>
+<div class="ds-share share" data-thread-key="pdb" data-title="python的pdb程序调试" data-url="http://yoursite.com/2019/05/24/pdb/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="python的pdb程序调试">
+    <div class="ds-share-inline">
+      <ul class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/15/title/" class="archive-article-date">
-  	<time datetime="2019-01-15T07:41:18.000Z" itemprop="datePublished">1月 15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/15/title/">
-        My first blog
-        
-      </a>
-    </h1>
-  
 
-        <div class="article-info info-on-left">
-          
-          
 
-          
-            
-<div class="counter-tag counter">
-    <span id="/2019/01/15/title/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="My first blog">
-         &nbsp;
-        view
-    </span>
-</div>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 </div>
       <footer id="footer">
@@ -414,8 +338,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true
