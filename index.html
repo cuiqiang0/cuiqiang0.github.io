@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 15px;">漏洞复现</a>
+						<a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 15px;">漏洞复现</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,81 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mysql的安装与使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/10/mysql的安装与使用/" class="article-date">
+  	<time datetime="2019-06-10T07:22:41.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/mysql的安装与使用/">
+        mysql在cmd窗口的交互
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MySQL是一个关系型数据库管理系统。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。<br>MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。<br>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。其体积小、速度快、总体拥有成本低。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在官网下载：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></p>
+<p>下载到本地解压之后就可以得到如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad250bb1d131548.jpg" alt=""></p>
+<h1 id="图形化"><a href="#图形化" class="headerlink" title="图形化"></a>图形化</h1><p>下载完这样的<strong>MySQL</strong>是没有图形化界面的，只能在<strong>cmd</strong>窗口下进行交互，虽然你可以下载一个图形化界面的mysql，但是我感觉全是英文的图形化界面的mysql比命令行还难用，哈哈。或者自己再下载一个<strong>navicat for mysql</strong>可以实现图形化界面，并且这个软件是中文版，算是对新手很友好了，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad323743f918988.jpg" alt=""></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>接下来你就可以再Windows的<strong>cmd</strong>窗口使用自己的MySQL了，首先打开<strong>cmd</strong>，然后把<strong>目录</strong>更改到<strong>MySQL</strong>的<strong>bin</strong>目录下，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad484ac65e64478.jpg" alt=""></p>
+<p>接下来就可以用<strong>mysql</strong>命令链接数据库了，输入命令<strong>mysql -uroot -p</strong>，-u后面为用户名，输入这行命令会让你输入密码，接下来输入密码就可以连接上数据库了，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad529f411a42161.jpg" alt=""><br>得到如上图就可以在命令行操作数据库了。</p>
+<h1 id="navicat-for-mysql的使用"><a href="#navicat-for-mysql的使用" class="headerlink" title="navicat for mysql的使用"></a>navicat for mysql的使用</h1><p>在网上下载好软件之后，正常情况下安装完直接用这个软件连接mysql会遇到错误，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad6044048f78194.jpg" alt=""></p>
+<p>只需在连接数据库窗口输入输入如下命令：<br><strong>alter user ‘root‘@’localhost’ identified with mysql_native_password by ‘123456’;</strong>然后用再用账号root密码123456连接即可。<br><img src="https://i.loli.net/2019/06/20/5d0ad6aea8d9834183.jpg" alt=""></p>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/06/10/mysql的安装与使用/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="mysql在cmd窗口的交互">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-pdb" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -928,114 +1003,6 @@
         
 <div class="counter-tag counter">
     <span id="/2019/04/10/共存py两种版本的方法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="两种py版本共存的方法">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-图片隐写" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/10/图片隐写/" class="article-date">
-  	<time datetime="2019-04-10T12:04:11.000Z" itemprop="datePublished">2019-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/图片隐写/">
-        记一道图片隐写题
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h2><p><a href="http://daka.whaledu.com:9999/challenges" target="_blank" rel="noopener">http://daka.whaledu.com:9999/challenges</a><strong>隐写题追加数据</strong></p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
-<li>pngcheck</li>
-<li>WinHex</li>
-<li>QR_Research</li>
-</ul>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>下载下来图片之后发现是png图片，首先我使用了<strong>pngcheck-2.3.0-win32</strong>分析了一下，发下如下：<br><img src="https://i.loli.net/2019/04/10/5caddd3840a4c.png" alt=""><br>从上图可以看出，其中有一个<strong>193</strong>位的插入数据，之后我用<strong>WinHex</strong>16进制工具打开，把其中193位长度的数据提取出来，如下图：<br><img src="https://i.loli.net/2019/04/10/5cadde5fac4f5.png" alt=""><br>截取其中的数据之后，就需要把它解密出来，我用了下面这个解密<strong>IDAT</strong>数据的脚本</p>
-<pre><code>#python2运行
-
-
-import zlib
-import binascii
-
-IDAT=&apos;789CA552B911C3300C5B09D87FB99C65E2A11A17915328FC8487C0C7E17BCEF57CCFAFA27CAB749B8A8E3E754C4C15EF25F934CDFF9DD7C0D413EB7D9E18D16F15D2EB0B2BF1D44C6AE6CAB1664F11933436A9D0D8AA6B5A2D09BA785E58EC8AB264111C0330A148170B90DA0E582CF388073676D2022C50CA86B63175A3FD26AE1ECDF2C658D148E0391591C9916A795432FBDDF27F6D2B71476C6C361C052FAA846A91B22C76A25878681B7EA904A950E28887562FDBC59AF6DFF901E0DBC1AB&apos;.decode(&apos;hex&apos;)
-result = binascii.hexlify(zlib.decompress(IDAT))
-bin = result.decode(&apos;hex&apos;)
-print bin
-print &apos;\r\n&apos;
-print (len(bin))
-</code></pre><p>跑出来的结果是<br><img src="https://i.loli.net/2019/04/10/5caddfa7ab53b.png" alt=""><br>我们发现其中只有0和1，并且是<strong>1024</strong>个长度，而且1024刚好等于32×32，因此猜测这是一个二维码图形，用了一个脚本转换了一下，脚本如下：</p>
-<pre><code>#python3运行
-from PIL import Image
-
-MAX = 32
-pic = Image.new(&apos;RGB&apos;,(MAX*9,MAX*9))
-#1.txt为存放1024位的txt文件
-f = open(&apos;C:\\Users\\DELL\\Desktop\\1\\1.txt&apos;,&apos;r&apos;)
-str = f.read()
-i = 0
-for y in range(0,MAX*9,9):
-    for x in range(0,MAX*9,9):
-        if(str[i] == &apos;1&apos;):
-            for n in range(9):
-                for j in range(9):
-                    pic.putpixel([x+j,y+n],(0,0,0))
-        else:
-            for k in range(9):
-                for l in range(9):
-                    pic.putpixel([x+l,y+k],(255,255,255))
-        i = i+1
-
-pic.show()
-pic.save(&quot;flag.png&quot;)
-f.close()
-</code></pre><p>跑出来之后得到一张二维码，扫描得到flag。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/04/10/图片隐写/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="记一道图片隐写题">
          &nbsp;
         view
     </span>

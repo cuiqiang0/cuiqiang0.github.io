@@ -3,34 +3,31 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>DVWA漏洞靶机环境搭建 | 37° &#39;s blog</title>
+  <title>mysql在cmd窗口的交互 | 37° &#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
-<meta name="keywords" content="漏洞复现">
+  <meta name="description" content="前言MySQL是一个关系型数据库管理系统。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。MyS">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DVWA漏洞靶机环境搭建">
-<meta property="og:url" content="http://yoursite.com/2019/03/28/DVWA漏洞靶机环境搭建/index.html">
+<meta property="og:title" content="mysql在cmd窗口的交互">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/mysql的安装与使用/index.html">
 <meta property="og:site_name" content="37° &#39;s blog">
-<meta property="og:description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
+<meta property="og:description" content="前言MySQL是一个关系型数据库管理系统。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。MyS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daa8c70327.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dab87a5ae9.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dae1644382.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9dae8d9ca05.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daeeb22523.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9daf4b95f93.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db186b11e7.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db25f33d79.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/29/5c9db3fc43bc9.png">
-<meta property="og:updated_time" content="2019-04-03T05:59:59.610Z">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad250bb1d131548.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad323743f918988.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad484ac65e64478.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad529f411a42161.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad6044048f78194.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0ad6aea8d9834183.jpg">
+<meta property="og:updated_time" content="2019-06-20T00:45:04.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DVWA漏洞靶机环境搭建">
-<meta name="twitter:description" content="前言 DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/29/5c9daa8c70327.png">
+<meta name="twitter:title" content="mysql在cmd窗口的交互">
+<meta name="twitter:description" content="前言MySQL是一个关系型数据库管理系统。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。MyS">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/20/5d0ad250bb1d131548.jpg">
   
     <link rel="alternative" href="/atom.xml" title="37° &#39;s blog" type="application/atom+xml">
   
@@ -224,11 +221,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-DVWA漏洞靶机环境搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mysql的安装与使用" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/28/DVWA漏洞靶机环境搭建/" class="article-date">
-  	<time datetime="2019-03-28T12:56:02.000Z" itemprop="datePublished">2019-03-28</time>
+      <a href="/2019/06/10/mysql的安装与使用/" class="article-date">
+  	<time datetime="2019-06-10T07:22:41.000Z" itemprop="datePublished">2019-06-10</time>
 </a>
     </div>
   
@@ -241,7 +238,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DVWA漏洞靶机环境搭建
+      mysql在cmd窗口的交互
       
     </h1>
   
@@ -251,7 +248,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞复现/">漏洞复现</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
 	</div>
 
         
@@ -259,7 +256,7 @@
         
           
 <div class="counter-tag counter">
-    <span id="/2019/03/28/DVWA漏洞靶机环境搭建/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="DVWA漏洞靶机环境搭建">
+    <span id="/2019/06/10/mysql的安装与使用/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="mysql在cmd窗口的交互">
          &nbsp;
         view
     </span>
@@ -272,13 +269,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>DVWA是一个学习Web漏洞的很好的工具，一个基于PHP/MYSQL环境写的一个web应用。如果你想学习web渗透测试测试遇见DVWA是你的幸运。DVWA包括<strong>Brute Force（暴力（破解））、Command Injection（命令行注入）、CSRF（跨站请求伪造）、File Inclusion（文件包含）、File Upload（文件上传）、Insecure CAPTCHA（不安全的验证码）、SQL Injection（SQL注入）、SQL Injection（Blind）（SQL盲注）、Weak Session IDs（弱会话标识）、XSS（DOM）（文档对象模型跨站脚本）、XSS（Reflected）（反射型跨站脚本）、XSS（Stored）（存储型跨站脚本）、JavaScript等漏洞。</strong>并且每一种漏洞还分了四种不同级别，在实验中还可以对照不同的等级来比较不同的PHP代码，给出的代码能我们更好的了解相应攻击方式的防御机制。</p>
-</blockquote>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>DVWA：链接：<a href="https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA" target="_blank" rel="noopener">https://pan.baidu.com/s/1RBYwv1X6zmh-25yCfQF9lA </a><br>提取码：wm9r<br>phpstudy：<a href="http://www.phpstudy.net/" target="_blank" rel="noopener">http://www.phpstudy.net/ </a></p>
-<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>下载的步骤比较简单，下载好后，解压<strong>PHP study</strong>和<strong>DVWA</strong>，这两个步骤也比较简单，注意PHP study的路径不能有中文，安装好后就可以看到PHP study的主页面如下图：<br><img src="https://i.loli.net/2019/03/29/5c9daa8c70327.png" alt=""><br>之后找到<strong>PHP study</strong>根目录下的<strong>www</strong>目录，如下图：<br><img src="https://i.loli.net/2019/03/29/5c9dab87a5ae9.png" alt=""></p>
-<p>在这里找到根目录后，把解压好的DVWA文件放在<strong>www</strong>目录下，如下图<br><img src="https://i.loli.net/2019/03/29/5c9dae1644382.png" alt=""><br>并且要把文件名改成<strong>DVWA</strong>。<br><img src="https://i.loli.net/2019/03/29/5c9dae8d9ca05.png" alt=""><br>接着用记事本打开DVWA/config/config.inc.php文件。<br><img src="https://i.loli.net/2019/03/29/5c9daeeb22523.png" alt=""><br>保存修改之后把文件的后缀去掉，如图<br><img src="https://i.loli.net/2019/03/29/5c9daf4b95f93.png" alt=""><br>做完这些环境设置就已经完成了，就可以启动<strong>PHP study</strong>并在浏览器上进入<strong>DVWA</strong>网站，链接：<a href="http://localhost/dvwa/setup.php" target="_blank" rel="noopener">http://localhost/dvwa/setup.php</a></p>
-<h1 id="DVWA"><a href="#DVWA" class="headerlink" title="DVWA"></a>DVWA</h1><p>进入网站之后会显示这个页面，直接跳过就会出现登陆界面<br><img src="https://i.loli.net/2019/03/29/5c9db186b11e7.png" alt=""><br><img src="https://i.loli.net/2019/03/29/5c9db25f33d79.png" alt=""><br>这里是默认的密码。<br><img src="https://i.loli.net/2019/03/29/5c9db3fc43bc9.png" alt=""><br>到这里，整个DVWA的环境已经搭建完毕。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MySQL是一个关系型数据库管理系统。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。<br>MySQL是一种关系数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。<br>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。其体积小、速度快、总体拥有成本低。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在官网下载：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></p>
+<p>下载到本地解压之后就可以得到如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad250bb1d131548.jpg" alt=""></p>
+<h1 id="图形化"><a href="#图形化" class="headerlink" title="图形化"></a>图形化</h1><p>下载完这样的<strong>MySQL</strong>是没有图形化界面的，只能在<strong>cmd</strong>窗口下进行交互，虽然你可以下载一个图形化界面的mysql，但是我感觉全是英文的图形化界面的mysql比命令行还难用，哈哈。或者自己再下载一个<strong>navicat for mysql</strong>可以实现图形化界面，并且这个软件是中文版，算是对新手很友好了，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad323743f918988.jpg" alt=""></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>接下来你就可以再Windows的<strong>cmd</strong>窗口使用自己的MySQL了，首先打开<strong>cmd</strong>，然后把<strong>目录</strong>更改到<strong>MySQL</strong>的<strong>bin</strong>目录下，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad484ac65e64478.jpg" alt=""></p>
+<p>接下来就可以用<strong>mysql</strong>命令链接数据库了，输入命令<strong>mysql -uroot -p</strong>，-u后面为用户名，输入这行命令会让你输入密码，接下来输入密码就可以连接上数据库了，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad529f411a42161.jpg" alt=""><br>得到如上图就可以在命令行操作数据库了。</p>
+<h1 id="navicat-for-mysql的使用"><a href="#navicat-for-mysql的使用" class="headerlink" title="navicat for mysql的使用"></a>navicat for mysql的使用</h1><p>在网上下载好软件之后，正常情况下安装完直接用这个软件连接mysql会遇到错误，如下图：<br><img src="https://i.loli.net/2019/06/20/5d0ad6044048f78194.jpg" alt=""></p>
+<p>只需在连接数据库窗口输入输入如下命令：<br><strong>alter user ‘root‘@’localhost’ identified with mysql_native_password by ‘123456’;</strong>然后用再用账号root密码123456连接即可。<br><img src="https://i.loli.net/2019/06/20/5d0ad6aea8d9834183.jpg" alt=""></p>
 <h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
       
     </div>
@@ -288,18 +286,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/04/02/DVWA（文件上传篇）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          DVWA（文件上传篇）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/27/pycham搭建python程序运行环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">pycharm搭建python程序运行环境</div>
+    <a href="/2019/05/24/pdb/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python的pdb程序调试</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -309,7 +298,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="DVWA漏洞靶机环境搭建" data-title="DVWA漏洞靶机环境搭建" data-url="http://yoursite.com/2019/03/28/DVWA漏洞靶机环境搭建/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="DVWA漏洞靶机环境搭建">
+<div class="ds-share share" data-thread-key="mysql的安装与使用" data-title="mysql在cmd窗口的交互" data-url="http://yoursite.com/2019/06/10/mysql的安装与使用/" data-images="https://i.loli.net/2019/01/18/5c41d6b1f13df.jpg" data-content="mysql在cmd窗口的交互">
     <div class="ds-share-inline">
       <ul class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
