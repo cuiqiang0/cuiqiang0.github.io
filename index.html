@@ -147,7 +147,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 15px;">漏洞复现</a>
+						<a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/python环境搭建/" style="font-size: 10px;">python环境搭建</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/漏洞复现/" style="font-size: 15px;">漏洞复现</a>
 					</div>
 				</section>
 				
@@ -210,6 +210,315 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-sql中的select" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/16/sql中的select/" class="article-date">
+  	<time datetime="2019-06-16T06:30:43.000Z" itemprop="datePublished">2019-06-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/16/sql中的select/">
+        sql语句中的select
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在sql语句中的增删改查中，使用最多的就是查询语句了，这篇文章就让我们来认识一下sql语句中的查询吧。</p>
+<h1 id="基本语句"><a href="#基本语句" class="headerlink" title="基本语句"></a>基本语句</h1><ul>
+<li>查询的基本语法<br><code>select * from 表名;</code><blockquote>
+<p>from关键字后面写表名，表示数据来源于是这张表<br>select后面写表中的列名，如果是*表示在结果中显示表中所有列<br>在select后面的列名部分，可以使用as为列起别名，这个别名出现在结果集中<br>如果要查询多个列，之间使用逗号分隔</p>
+</blockquote>
+</li>
+<li>消除重复行<br>在<strong>select</strong>后面列前使用<strong>distinct</strong>可以消除重复的行<br><code>select distinct * from students;</code></li>
+</ul>
+<h1 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h1><blockquote>
+<p>使用<strong>where</strong>子句对表中的数据筛选，结果为<strong>true</strong>的行会出现在结果集中</p>
+</blockquote>
+<p>语法如下：<br><code>select * from 表名 where 条件;</code></p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
+<li>等于 =</li>
+<li>大于 &gt;</li>
+<li>大于等于 &gt;=</li>
+<li>小于 &lt;</li>
+<li>小于等于 &lt;=</li>
+<li>不等于 != 或 &lt;&gt;<blockquote>
+<p>查询编号大于3的学生<br>  select * from students where id&gt;3;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<li>且 and</li>
+<li>或 or</li>
+<li>非 not<blockquote>
+<p>查询编号小于4或没被删除的学生<br>  select * from students where id&lt;4 or isdelete=0;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h2><ul>
+<li>like 关键字</li>
+<li>% 表示任意多个任意字符</li>
+<li>_ 表示一个任意字符<blockquote>
+<p>查询姓黄的学生<br>  select * from students where sname like ‘黄%’;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h2><ul>
+<li>in表示在一个非连续的范围内<blockquote>
+<p>查询编号是1或3或8的学生<br>  select * from students where id in(1,3,8);</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="空判断"><a href="#空判断" class="headerlink" title="空判断"></a>空判断</h2><ul>
+<li>注意：null与’’是不同的</li>
+<li>判空is null<blockquote>
+<p>查询没有填写地址的学生<br>  select * from students where hometown is null;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><ul>
+<li>小括号&gt;not&gt;比较运算符&gt;逻辑运算符。</li>
+<li>and比or先运算，如果同时出现并希望先算or，需要结合()使用。</li>
+</ul>
+<h1 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h1><blockquote>
+<p>为了快速得到统计数据，mysql提供了5个聚合函数</p>
+</blockquote>
+<ol>
+<li>count(*)表示计算总行数，括号中写*或者列名，结果是相同的查询学生总数<br> select count(*) from students;</li>
+<li>max(列)表示求此列的最大值</li>
+</ol>
+<ul>
+<li>查询女生的编号最大值<br>  select max(id) from students where gender=0;</li>
+</ul>
+<ol start="3">
+<li>min(列)表示求此列的最小值</li>
+</ol>
+<ul>
+<li>查询未删除的学生最小编号<br>  select min(id) from students where isdelete=0;</li>
+</ul>
+<ol start="4">
+<li>sum(列)表示求此列的和</li>
+</ol>
+<ul>
+<li>查询男生的编号之后<br>  select sum(id) from students where gender=1;</li>
+</ul>
+<ol start="5">
+<li>avg(列)表示求此列的平均值</li>
+</ol>
+<ul>
+<li>查询未删除女生的编号平均值<br>  select avg(id) from students where isdelete=0 and gender=0;</li>
+</ul>
+<h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><blockquote>
+<ul>
+<li>按照字段分组，表示此字段相同的数据会被放到一个组中</li>
+<li>分组后，只能查询出相同的数据列，对于有差异的数据列无法出现在结果集中</li>
+<li>可以对分组后的数据进行统计，做聚合运算</li>
+</ul>
+</blockquote>
+<p>语法：<br>    select 列1,列2,聚合… from 表名 group by 列1,列2,列3…<br>查询男女生总数<br>    select gender as 性别,count(<em>)<br>    from students<br>    group by gender;<br>查询各城市人数<br>    select hometown as 家乡,count(</em>)<br>    from students<br>    group by hometown;</p>
+<p>语法：<br>    select 列1,列2,聚合… from 表名<br>    group by 列1,列2,列3…<br>    having 列1,…聚合…</p>
+<ul>
+<li>having后面的条件运算符与where的相同</li>
+</ul>
+<blockquote>
+<p><strong>对比where与having</strong><br>where是对from后面指定的表进行数据筛选，属于对原始数据的筛选<br>having是对group by的结果进行筛选</p>
+</blockquote>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><blockquote>
+<p>为了方便查看数据，可以对数据进行排序</p>
+</blockquote>
+<p>语法：<br>    select * from 表名<br>    order by 列1 asc|desc,列2 asc|desc,…<br>将行数据按照列1进行排序，如果某些行列1的值相同时，则按照列2排序，以此类推<br><strong>默认按照列值从小到大排列,asc从小到大排列，即升序,desc从大到小排序，即降序</strong></p>
+<ul>
+<li>查询未删除男生学生信息，按学号降序<br>  select * from students<br>  where gender=1 and isdelete=0<br>  order by id desc;</li>
+<li>查询未删除科目信息，按名称升序<br>  select * from subject<br>  where isdelete=0<br>  order by stitle;</li>
+</ul>
+<h1 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h1><blockquote>
+<p>当数据量过大时，在一页中查看数据是一件非常麻烦的事情，这时候分页就有了用处。<br>语法：<br>    select * from 表名<br>    limit start,count;<br>从start开始，获取count条数据,start索引从0开始。</p>
+</blockquote>
+<ul>
+<li>求第n页的数据<br>  select <em> from students<br>  where isdelete=0<br>  limit (n-1)</em>m,m</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>执行顺序：<br>  from 表名<br>  where ….<br>  group by …<br>  select distinct *<br>  having …<br>  order by …<br>  limit star,count<br><strong>实际使用中，只是语句中某些部分的组合，而不是全部</strong></li>
+</ul>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/06/16/sql中的select/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="sql语句中的select">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-mysql简单命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/12/mysql简单命令/" class="article-date">
+  	<time datetime="2019-06-12T06:22:49.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/mysql简单命令/">
+        mysql的基本命令
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用命令行可以快速的实现增删改查，可以对数据库进行修改，可以对数据库中的表进行修改，熟练掌握这些命令，可以在开发中起到事半功倍的作用。</p>
+<h1 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h1><ul>
+<li><p>创建数据库<br><code>create database 数据库名 charset=utf8;</code></p>
+</li>
+<li><p>删除数据库<br><code>drop database 数据库名;</code></p>
+</li>
+<li><p>切换数据库<br><code>use 数据库名;</code></p>
+</li>
+<li><p>查看当前选择的数据库<br><code>select database();</code></p>
+</li>
+</ul>
+<h1 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h1><ul>
+<li><p>查看当前数据库中所有表<br><code>show tables;</code></p>
+</li>
+<li><p>创建表<br><code>create table 表名(列1,列2,...);</code></p>
+<blockquote>
+<p>唯一标识的要求：id<br>   类型：int unsigned<br>   约束1：not null<br>   约束2：primary key<br>   约束3：auto_increment</p>
+</blockquote>
+</li>
+</ul>
+<p>例：<br><code>create table stu(
+    id int not null primary key auto_increment,
+    name varchar(10) not null,
+    gender bit default 1,
+    birthday datetime,
+    isDelete bit default 0);</code><br>结果如下图：<br><img src="https://i.loli.net/2019/06/26/5d130a48168b786661.jpg" alt=""></p>
+<ul>
+<li><p>查看当前表<br><code>show tables;</code></p>
+</li>
+<li><p>查看表结构<br><code>desc 表名;</code></p>
+</li>
+<li><p>修改表<br><code>alter table 表名 add|modify|drop 列名 类型 约束;</code></p>
+</li>
+<li><p>删除表<br><code>drop table 表名;</code></p>
+</li>
+<li><p>更改表名称<br><code>rename table 原表名 to 新表名;</code></p>
+</li>
+<li><p>查看表的创建语句<br><code>show create table 表名;</code></p>
+</li>
+</ul>
+<h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><ul>
+<li><p>添加数据<br><code>insert into 表名(列名，列名) values(值，值);</code></p>
+</li>
+<li><p>修改数据<br><code>update 表名 set 列1=值1,... where ...;</code></p>
+</li>
+<li><p>删除数据<br><code>delete from 表名 where ...;</code></p>
+</li>
+<li><p>查看所有数据<br><code>select * from 表名</code></p>
+</li>
+</ul>
+<h1 id="数据库的备份与恢复"><a href="#数据库的备份与恢复" class="headerlink" title="数据库的备份与恢复"></a>数据库的备份与恢复</h1><blockquote>
+<p>备份与恢复不需要连接到数据库，只需要在cmd下就可以对数据库进行。</p>
+</blockquote>
+<ul>
+<li><p>备份<br><code>mysqldump –uroot –p 数据库名 &gt; 目录/备份文件.sql;</code></p>
+</li>
+<li><p>恢复<br><code>mysql -uroot –p 数据库名 &lt; 目录/备份文件.sql;</code></p>
+</li>
+</ul>
+<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+	</div>
+
+      
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2019/06/12/mysql简单命令/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="mysql的基本命令">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-mysql的安装与使用" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -855,154 +1164,6 @@
         
 <div class="counter-tag counter">
     <span id="/2019/04/28/python类型转换/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="python类型转换">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-图片隐写2" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/11/图片隐写2/" class="article-date">
-  	<time datetime="2019-04-11T13:17:13.000Z" itemprop="datePublished">2019-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/11/图片隐写2/">
-        图片隐写
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文写的是在<strong>kali Linux</strong>系统完成的一道图片隐写的做法，在<strong>Windows</strong>系统我也试着用了，但是感觉<strong>scalpel</strong>这个工具与<strong>Windows</strong>不兼容，最后修复图片的时候总是跑不出来，因此只能改为<strong>kali</strong>，我不知道为啥<strong>Windows</strong>不能跑出来，希望有知道的大佬能告诉我。</p>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
-<li>kali Linux</li>
-<li>binwalk</li>
-<li>foremost</li>
-<li>scalpel</li>
-<li>winhex</li>
-</ul>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>链接：<a href="http://daka.whaledu.com:9999/challenges" target="_blank" rel="noopener">http://daka.whaledu.com:9999/challenges</a>  <strong>隐写题（黑客透视镜）</strong></p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先，对于图片隐写的题目，都是常规操作来一波，先查看了一下属性，拉进记事本之后发现什么也没有发现，然后就是对图片进行分析了，我首先使用的是<strong>binwalk</strong>，分析如下：<br><img src="https://i.loli.net/2019/04/12/5cafe5df3f44b.png" alt=""><br>分析了一下，发现这个图片包含三个png图片，因此接下来就是把图片分离出来了，我用的是<strong>foremost</strong>，分离如下：<br><img src="https://i.loli.net/2019/04/12/5cafe6ce9d2f8.png" alt=""><br>按照正常情况下，应该能分离出三个图片，可是分离之后我发现并不是，得到的文件里只有这个<br><img src="https://i.loli.net/2019/04/12/5cafe736ce052.png" alt=""><br>这说明并没有成功，这就使我很纳闷了，然后我用<strong>16进制工具winhex</strong>查看了一下图片的十六进制，并百度搜索了一下<strong>jpg图片的文件头和文件尾</strong>。</p>
-<blockquote>
-<p>JPEG (jpg) 文件头：FFD8FF 文件尾：FF D9</p>
-</blockquote>
-<p><strong>winhex</strong>打开得到：<br><img src="https://i.loli.net/2019/04/12/5cafeb6a78fcc.png" alt=""><br><img src="https://i.loli.net/2019/04/12/5cafeb7d374bc.png" alt="">　<br><img src="https://i.loli.net/2019/04/12/5cafeb90c66a7.png" alt=""><br>做到这里，我就百度了一下文件修复文具，找到一个<strong>scalpel</strong>，说是很强大，其实确实是，挺好用的，在<strong>kali</strong>上，你需要下载<strong>scalpel的配置文件scalpel.conf</strong>，也可以在Windows上下载一个复制上去，然后你需要配置<strong>scalpel.conf</strong>，如下图：<br><img src="https://i.loli.net/2019/04/12/5cafee3535e82.png" alt=""><br>然后就可以在<strong>kali</strong>上运行，如下图：<br><img src="https://i.loli.net/2019/04/12/5caff0ec55670.png" alt=""><br>打开<strong>flag</strong>文件看到分离的图片：<br><img src="https://i.loli.net/2019/04/12/5caff1a942cfa.png" alt=""></p>
-<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术分享/">技术分享</a></li></ul>
-	</div>
-
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/04/11/图片隐写2/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="图片隐写">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-共存py两种版本的方法" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/10/共存py两种版本的方法/" class="article-date">
-  	<time datetime="2019-04-10T12:53:56.000Z" itemprop="datePublished">2019-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/共存py两种版本的方法/">
-        两种py版本共存的方法
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>最近跑脚本，发现网上许多脚本都是python2的脚本，而自己一直学习都是python3，每次运行python2的脚本都非常的难受，之后下载了一个python2，并把2版本也添加了环境变量，但是发现在<strong>cmd</strong>中输入<strong>python</strong>之后总是显示<strong>python2</strong>的版本，想用<strong>python3</strong>的版本又用不了了，大佬勿喷，写出来希望对不会的有用吧。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p><strong>python2</strong>输入<br>    py -2</p>
-<p><strong>python3</strong>输入<br>    py -3<br>如下图：</p>
-<p><img src="https://i.loli.net/2019/04/10/5cade9071fca9.png" alt=""></p>
-<h1 id="END！"><a href="#END！" class="headerlink" title="END！"></a>END！</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2019/04/10/共存py两种版本的方法/" class="leancloud_visitors post-title-link" style="font-size: 12px" data-flag-title="两种py版本共存的方法">
          &nbsp;
         view
     </span>
